@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2fdb8ed46e4840a488cfd0362daed8a6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Truculenta Original
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 67c40098c62e8f547aa7382a5f3e644b, type: 3}
+  - {fileID: 12800000, guid: e29c764ccce57a746aa1d32e5c3109b2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: OP4
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Kaka
+    charSprite:
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    dialogue: ...dan terimakasih sudah menolongku
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Justip
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    dialogue: .......
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Justip
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    dialogue: 'Ya gitu lah, tapi dari pada itu.. '
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Justip
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    dialogue: Hei Ardie ayo kita selesaikan pertempuran ini, kau tau kan apa yang
+      ku maksud?!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    dialogue: Haa... jadi kau menantang kami untuk memulai duel wilayah lagi ya?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    dialogue: Hahaha.. bagaimana teman-teman?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kamal
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
+    dialogue: Gass keun Boss!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Arya
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Siapa takut, siapa juga yang dulu menantang dan kalah sendiri?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Siapa lagi kalau bukan si penantang kita ini hahaha...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Arya
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Si Manusia keadilan, Panji si Justip-man... hahahaha
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    dialogue: Lo jual Gua Beli, kita mulai dari besok pagi!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Ayo teman teman kita persiapkan serangan kita!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  choices: []
+  eventIndex: 1

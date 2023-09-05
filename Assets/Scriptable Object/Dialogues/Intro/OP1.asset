@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: OP1
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: haaa.. HAARIII YANG INDAAH
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: Untuk memulai petualanganku ha.. ha.. haa..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: Aku Kaka, yang sudah berpengalaman dalam menjelajahi daerah yang mereka
+      sebut kota.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: Aku Kaka, akan mempertaruhkan nyawaku sendiri, demi menjelajahi daerah
+      yang masih asing ini.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: hu..hu..hu.. bagaimana diriku..?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: Perkenalan pembuka yang sangat menarik bukan ?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: 'hu..hu..hu.. tentu saja karena aku adalah KARAKTER UTAMA di cerita
+      kali ini.... '
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kaka
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: HA.... HA.... HAAAA...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: 
+    charSprite:
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 0}
+    dialogue: Kaka berjalan dengan santai menyusuri jalan desa, sembari menikmati
+      pemandangan hamparann sawah luas.
+    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+  - name: 
+    charSprite:
+    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Tidak jauh, Kaka melihat sekelompok anak yang sedang mengusir sekelompok
+      anak perempuan yang sedang bermain di poskamling
+    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+  - name: 
+    charSprite:
+    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
+    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    dialogue: Kaka yang melihat itu berinisiatif untuk menghentikan kejahatan itu
+    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+  choices:
+  - text: Hei, kalian hentikan!
+    choiceIndex: 1
+    eventKey: 0
+  - text: Wahai kejahatan, hentikan tindakanmu!
+    choiceIndex: 1
+    eventKey: 0
+  eventIndex: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd32e63ef9cfb49869be3b46afee5f, type: 3}
+  m_Name: Kertas Basah
+  m_EditorClassIdentifier: 
+  ammoName: Kertas Basah
+  ammoIcon: {fileID: -1577133907, guid: b7b6fcd0311b9ee46af4411a0079e662, type: 3}
+  ammoPrefab: {fileID: 6360847198384977959, guid: 67120274aae41c94ab47a85f6c209c82, type: 3}
