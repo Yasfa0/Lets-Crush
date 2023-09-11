@@ -9,8 +9,11 @@ public class DialogueController : MonoBehaviour
     //Untuk Singleton
     public static DialogueController Instance { get; private set; }
 
+    [SerializeField] private AudioClip audioKlik;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private List<Image> charImg = new List<Image>();
+    [SerializeField] private Color fullColor = Color.white;
+    [SerializeField] private Color dimColor = Color.gray;
     [SerializeField] private Button skipButton;
     [SerializeField] private Text dialogueText;
     [SerializeField] private Text nameText;
@@ -144,6 +147,15 @@ public class DialogueController : MonoBehaviour
             {
                 charImg[i].gameObject.SetActive(true);
                 charImg[i].sprite = currentDialogue.charSprite[i];
+                //charImg[i].color = currentDialogue.spriteColor[i];
+                if (!currentDialogue.dimSprite[i])
+                {
+                    charImg[i].color = fullColor;
+                }
+                else
+                {
+                    charImg[i].color = dimColor;
+                }
             }
             else
             {
@@ -172,6 +184,7 @@ public class DialogueController : MonoBehaviour
     {
         dialogueIndex++;
 
+        AudioManagerY.Instance.PlayAudio(audioKlik, 1);
         Debug.Log("Next dialogue");
         /*Debug.Log("Dialogue Length: " + dialogueList[dialogueRoute].dialogues.Length);
         Debug.Log("Dialogue Index: " + dialogueIndex);*/

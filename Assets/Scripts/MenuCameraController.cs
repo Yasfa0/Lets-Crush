@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MenuCameraController : MonoBehaviour
 {
+    [SerializeField] private AudioClip audioKlik;
     private float smoothSpeed = 0.125f;
     int currentPosIndex = 0;
     //kamera sekarang
@@ -52,6 +53,7 @@ public class MenuCameraController : MonoBehaviour
 
     public void GantiPosisiKamera(int indexPos)
     {
+        AudioManagerY.Instance.PlayAudio(audioKlik, 1);
             currentPosIndex = indexPos;
     }
 

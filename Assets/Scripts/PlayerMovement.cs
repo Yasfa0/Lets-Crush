@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
                         Destroy(cap);
                         //cap.transform.position = new Vector3(-999,-999,-999);
                     }
+                    MapManager.Instance.FillTeams();
                     captureFollow.Clear();
                     //MapManager.Instance.FillTeams();
                 }

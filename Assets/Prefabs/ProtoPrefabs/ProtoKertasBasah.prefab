@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFriendly: 1
-  damage: 10
-  damageCap: 25
+  damage: 20
+  damageCap: 30
   speed: 10

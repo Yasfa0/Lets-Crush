@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private AudioClip audioKlik;
+    [SerializeField] private AudioClip audioShoot;
     [SerializeField] Transform bulletSpawner;
     [SerializeField] GameObject indicator;
     [SerializeField] List<AmmoScriptable> ammoList = new List<AmmoScriptable>();
@@ -97,6 +99,7 @@ public class Weapon : MonoBehaviour
     public void ChangeAmmo(int changeValue)
     {
         currentAmmoIndex += changeValue;
+        AudioManagerY.Instance.PlayAudio(audioKlik, 1);
 
         if(currentAmmoIndex >= ammoList.Count)
         {
@@ -119,6 +122,7 @@ public class Weapon : MonoBehaviour
             lastShot = Time.time;
             GameObject bulletInstance = Instantiate(ammoList[currentAmmoIndex].ammoPrefab, bulletSpawner.position, Quaternion.identity);
             bulletInstance.transform.parent = null;
+            AudioManagerY.Instance.PlayAudio(audioShoot,1);
             //bulletInstance.transform.Translate(bulletTarget * 100 * Time.deltaTime);
             bulletInstance.GetComponent<Ammo>().SetTargetPos(bulletDir, range);
             yield return new WaitForSeconds(rofDelay);

@@ -57,7 +57,7 @@ public class MoveToBenteng : State
     public MoveToBenteng(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
     {
         name = STATE.MoveToBenteng;
-        agent.speed = 7;
+        agent.speed = 3;
         agent.isStopped = false;
         targetBenteng = MapManager.Instance.GetBentengPlayer();
     }

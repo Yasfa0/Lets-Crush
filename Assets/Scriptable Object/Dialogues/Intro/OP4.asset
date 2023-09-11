@@ -15,88 +15,109 @@ MonoBehaviour:
   dialogues:
   - name: Kaka
     charSprite:
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
+    - {fileID: 21300000, guid: f5ad09b9c35807949993de667d5e0e5e, type: 3}
+    dimSprite: 000001
     dialogue: ...dan terimakasih sudah menolongku
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
+    dimSprite: 010000
     dialogue: .......
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
+    - {fileID: 21300000, guid: ac085eaffcd7aab4caae32a8474ca804, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: f5ad09b9c35807949993de667d5e0e5e, type: 3}
+    dimSprite: 010000
     dialogue: 'Ya gitu lah, tapi dari pada itu.. '
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: 60b5b576359d9af4dadaac5e3a6e9e2f, type: 3}
+    dimSprite: 000001
     dialogue: Hei Ardie ayo kita selesaikan pertempuran ini, kau tau kan apa yang
       ku maksud?!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Ardie
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: 60b5b576359d9af4dadaac5e3a6e9e2f, type: 3}
+    dimSprite: 010000
     dialogue: Haa... jadi kau menantang kami untuk memulai duel wilayah lagi ya?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Ardie
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010000
     dialogue: Hahaha.. bagaimana teman-teman?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kamal
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    dialogue: Gass keun Boss!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Arya
-    charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
-    dialogue: Siapa takut, siapa juga yang dulu menantang dan kalah sendiri?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Ardie
-    charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
-    dialogue: Siapa lagi kalau bukan si penantang kita ini hahaha...
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Arya
-    charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
-    dialogue: Si Manusia keadilan, Panji si Justip-man... hahahaha
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Ardie
-    charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    dialogue: Lo jual Gua Beli, kita mulai dari besok pagi!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    dimSprite: 010000
+    dialogue: Gasskeun Boss!
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Arya
+    charSprite:
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 06f40381b117d394cb28fe9eb4879bc7, type: 3}
+    dimSprite: 010000
+    dialogue: Siapa takut, siapa juga yang dulu menantang dan kalah sendiri?
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Ardie
     charSprite:
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010000
+    dialogue: Siapa lagi kalau bukan si penantang kita ini hahaha...
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Arya
+    charSprite:
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 06f40381b117d394cb28fe9eb4879bc7, type: 3}
+    dimSprite: 010000
+    dialogue: Si Manusia keadilan, Panji si Justip-man... hahahaha
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: f5ad09b9c35807949993de667d5e0e5e, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010000
+    dialogue: Lo jual Gua Beli, kita mulai dari besok pagi!
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Ardie
+    charSprite:
+    - {fileID: 21300000, guid: 06f40381b117d394cb28fe9eb4879bc7, type: 3}
+    - {fileID: 21300000, guid: f5ad09b9c35807949993de667d5e0e5e, type: 3}
+    - {fileID: 21300000, guid: 2ea1d4aaec2ec194c9e25a679adfd44b, type: 3}
+    dimSprite: 000000
     dialogue: Ayo teman teman kita persiapkan serangan kita!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  choices: []
-  eventIndex: 1
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  choices:
+  - text: Ok kalau gitu aku pergi juga
+    choiceIndex: 4
+    eventKey: 0
+  - text: Kalau gitu aku lanjut jalan
+    choiceIndex: 4
+    eventKey: 0
+  - text: Raja iblis kabur, saatnya hero mundur
+    choiceIndex: 4
+    eventKey: 0
+  eventIndex: 0

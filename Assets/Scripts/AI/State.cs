@@ -101,7 +101,14 @@ public class State
             }
         }
 
-        return livingOpponent[closestIndex];
+        if (livingOpponent.Count>0)
+        {
+            return livingOpponent[closestIndex];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public bool CanSeePlayer()
@@ -138,7 +145,7 @@ public class State
         {
             //Debug.Log(chara.name);
             //Debug.Log(player.gameObject.name);
-            if (chara == oppTarget.gameObject)
+            if (oppTarget != null && chara == oppTarget.gameObject)
             {
                 Debug.Log("Character enter base Ally");
                 return true;
@@ -189,23 +196,29 @@ public class State
     public bool WithinCustomDistance(float distance)
     {
         oppTarget = CalcOppClosest();
-        Vector3 direction = oppTarget.position - npc.transform.position;
-
-        if (direction.magnitude <= distance)
+        if(oppTarget != null)
         {
-            //Debug.Log("Within Distance");
-            return true;
+            Vector3 direction = oppTarget.position - npc.transform.position;
+
+            if (direction.magnitude <= distance)
+            {
+                //Debug.Log("Within Distance");
+                return true;
+            }
         }
         return false;
     }
 
     public bool CanAttackPlayer()
     {
-        oppTarget = CalcOppClosest();
-        Vector3 direction = oppTarget.position - npc.transform.position;
-        if (direction.magnitude < weapRange)
+        if(oppTarget != null)
         {
-            return true;
+            oppTarget = CalcOppClosest();
+            Vector3 direction = oppTarget.position - npc.transform.position;
+            if (direction.magnitude < weapRange)
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -323,13 +336,15 @@ public class MoveBlock : State
     public override void Update()
     {
         enteredBase = OpponentEnterZone();
-
-        Vector3 target = new Vector3(oppTarget.position.x,oppTarget.position.y,Mathf.Clamp(oppTarget.position.z,chaseLimit.position.z,Mathf.Infinity));
+        oppTarget = CalcOppClosest();
+        Vector3 target = new Vector3(oppTarget.position.x,oppTarget.position.y,Mathf.Clamp(oppTarget.position.z, oppTarget.position.z, chaseLimit.position.z));
 
         agent.SetDestination(target);
 
-        if (WithinShootDistance())
+        //if (WithinShootDistance())
+        if(WithinCustomDistance(3f))
         {
+            Debug.Log("IF KNOCK");
             nextState = new KnockAttack(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
@@ -391,10 +406,20 @@ public class KnockAttack : State
 {
     float lastShot;
     float shootCD = 0.5f;
+    Transform chaseLimit;
+
 
     public KnockAttack(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
     {
         name = STATE.KnockAttack;
+        if (opposingTeam[0].gameObject.tag == "Enemy")
+        {
+            chaseLimit = MapManager.Instance.GetFriendlyChaseLimit();
+        }
+        else
+        {
+            chaseLimit = MapManager.Instance.GetEnemyChaseLimit();
+        }
     }
 
     public override void Enter()
@@ -411,10 +436,19 @@ public class KnockAttack : State
 
 
         //float angleLeft = Vector3.Angle(npc.transform.forward, player.position - npc.transform.position);
-        if (angle < 10 && Time.time - lastShot > shootCD)
+        //if (angle < 10 && Time.time - lastShot > shootCD)
+        if(WithinCustomDistance(3) && Time.time - lastShot > shootCD)
         {
             lastShot = Time.time;
-            npc.GetComponent<CharacterBase>().Shoot();
+            Vector3 pushDir = npc.transform.forward * 1000;
+            npc.GetComponent<CharacterBase>().Push(oppTarget.gameObject);
+            Debug.Log("KNOCK PUSH");
+        }
+
+        if (!WithinCustomDistance(3.1f))
+        {
+            nextState = new MoveBlock(npc,opposingTeam,anim,agent,chaseLimit);
+            stage = EVENT.EXIT;
         }
 
         /*if (!WithinShootDistance())
@@ -423,12 +457,12 @@ public class KnockAttack : State
             stage = EVENT.EXIT;
         }*/
 
-        if (!WithinDistance())
+        /*if (!WithinDistance())
         {
             //nextState = new Idle(npc, player, anim, agent);
             nextState = new BackToBase(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
-        }
+        }*/
 
     }
 
@@ -446,7 +480,7 @@ public class KnockCapture : State
     {
         name = STATE.KnockCapture;
         followTarget = transTarget;
-        agent.speed = 6;
+        agent.speed = 5;
         agent.isStopped = false;
     }
 

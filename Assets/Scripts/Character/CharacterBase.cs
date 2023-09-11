@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
+    [SerializeField] protected AudioClip audioShoot;
     [SerializeField] protected float maxHP = 1000f;
     [SerializeField] protected GameObject hpBarPrefab;
     [SerializeField] protected Vector3 hpbarOffset = new Vector3(0, 4f, 3.5f);
@@ -22,16 +23,29 @@ public class CharacterBase : MonoBehaviour
     protected bool isCorroded = false;
     protected float nextCorrosion;
 
+    protected Vector3 pushDirection = new Vector3();
+    protected bool isPushed = false;
+
+
     protected void Update()
     {
+        PushProcess();
         CorrosionProcess();
+    }
+
+    protected void PushProcess()
+    {
+        if (isPushed)
+        {
+            transform.Translate(pushDirection * 10 * Time.deltaTime);
+        }
     }
 
     protected void CorrosionProcess()
     {
         if (isCorroded)
         {
-            Debug.Log("Corroded");
+            //Debug.Log("Corroded");
             if (Time.time >= nextCorrosion)
             {
                 nextCorrosion = Time.time + 1f;
@@ -79,6 +93,23 @@ public class CharacterBase : MonoBehaviour
         hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP);
     }
 
+    public void Push(GameObject target)
+    {
+        Vector3 dir = -transform.forward.normalized;
+        target.GetComponent<CharacterBase>().StartCoroutine(target.GetComponent<CharacterBase>().ExecutePush(dir));
+    }
+
+    public IEnumerator ExecutePush(Vector3 dir)
+    {
+        if (!isPushed)
+        {
+            pushDirection = dir;
+            isPushed = true;
+            yield return new WaitForSeconds(0.5f);
+            isPushed = false;
+        }
+    }
+
     public void Shoot()
     {
         if (hpBarInstance.GetCurrentAmmo() > 0)
@@ -95,6 +126,7 @@ public class CharacterBase : MonoBehaviour
             lastShot = Time.time;
             GameObject bulletInstance = Instantiate(ammoPrefab, bulletSpawner.position, Quaternion.identity);
             bulletInstance.transform.parent = null;
+            AudioManagerY.Instance.PlayAudio(audioShoot, 1);
             //bulletInstance.transform.Translate(bulletTarget * 100 * Time.deltaTime);
             bulletInstance.GetComponent<Ammo>().SetTargetPos(bulletDir, range);
             yield return new WaitForSeconds(rofDelay);

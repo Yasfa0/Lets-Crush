@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Ally : CharacterBase
 {
     [SerializeField] protected float regenCD = 2f;
+    private float maxStamina = 1000;
     protected State idleState;
     protected Animator anim;
     protected NavMeshAgent agent;

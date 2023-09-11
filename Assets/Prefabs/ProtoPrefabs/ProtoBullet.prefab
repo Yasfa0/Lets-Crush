@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFriendly: 1
-  damage: 20
-  damageCap: 35
+  damage: 40
+  damageCap: 50
   speed: 10
 --- !u!54 &2819585153843188966
 Rigidbody:

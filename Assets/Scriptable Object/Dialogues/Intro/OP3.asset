@@ -13,129 +13,146 @@ MonoBehaviour:
   m_Name: OP3
   m_EditorClassIdentifier: 
   dialogues:
-  - name: Ardie
+  - name: Kaka
     charSprite:
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    dialogue: Haaaa!!! kau ngajak berantem?? berani sekali kau memerintahku
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    - {fileID: 21300000, guid: 60b5b576359d9af4dadaac5e3a6e9e2f, type: 3}
+    dimSprite: 000001
+    dialogue: Hentikan yang kalian lakukan itu!
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kamal
     charSprite:
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
     - {fileID: 0}
-    dialogue: Minta dipukul ni anak ya, arya bantu aku pegang dia!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    dimSprite: 010000
+    dialogue: Minta dipukul ni anak ya, Arya bantu aku pegang dia!
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Arya
     charSprite:
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 115c4d4f38898f74db62db71d42b75d4, type: 3}
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    dimSprite: 000100
     dialogue: Roger that
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: 
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Narrator
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Kaka terkepung dan akan dikeroyok, namun entah dari mana Seorang anak
       berpakaian nyentrik muncul dan menyelamatkan kaka
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
-  - name: 
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Narrator
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Dia menembaki tiga villain itu dengan sebuah senapan yang seperti buatannya
       sendiri. Kereeen...
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
-  - name: 
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Narrator
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Ya itu kesan pertama kaka melihatnya..
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: 'Justip '
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: 08d815cd1cad54048b0f94084b234729, type: 3}
+    dimSprite: 000001
     dialogue: Hey Ardie, dan kelompok mu, kau berbuat ulah lagi ya!?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Ardie
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010000
     dialogue: Tch, kau lagi kau lagi, dan kenapa kau selalu suka menembak orang si
-      panji. dan apa apaan pakaianmu itu, selalu norak seperti orangnya
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+      Panji. dan apa apaan pakaianmu itu, selalu norak seperti orangnya
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Arya
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    dimSprite: 010000
     dialogue: Iya iya benar, panji adalah orang paling aneh di desa
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kamal
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    dimSprite: 010000
     dialogue: Hahaha kau masih pakai pakaian model gitu.. Hahaha..
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: 08d815cd1cad54048b0f94084b234729, type: 3}
+    dimSprite: 000001
     dialogue: 'Hei aku adalah seorang pejuang keadilan dan pembela kebenaran. '
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Sebut aku Justi..e...
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Justi..e'tc..p... Man, Jastip Man
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Jastip Man!!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Ardie
     charSprite:
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: 968743ac5e860574ab6345055e40061f, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010000
     dialogue: Lihat dia menyebut nama julukannya saja sesulit itu dan salah lagi
       Hahahaha...
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Ardie, Kamal, & Arya
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Trio
     charSprite:
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 727972198e1cd534b8e671814135ea7d, type: 3}
+    - {fileID: 21300000, guid: 06f40381b117d394cb28fe9eb4879bc7, type: 3}
+    - {fileID: 21300000, guid: 2ea1d4aaec2ec194c9e25a679adfd44b, type: 3}
+    dimSprite: 000000
     dialogue: Hahahah!
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Justip
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: ac2341f8aa4a26a418bed4ca785751d9, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Kau tidak apa apa?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   choices:
   - text: Hmmm
     choiceIndex: 3

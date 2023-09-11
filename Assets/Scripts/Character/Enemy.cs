@@ -12,6 +12,7 @@ public class Enemy : CharacterBase
     protected State currentState;
     //protected GameObject player;
     protected List<GameObject> opposingTeam = new List<GameObject>();
+    protected bool isDead = false;
 
     private void Awake()
     {
@@ -44,9 +45,11 @@ public class Enemy : CharacterBase
 
     public override void Knockdown()
     {
-        if(currentHP <= 0)
+        if(currentHP <= 0 && !isDead)
         {
+            isDead = true;
             //hpBarInstance.DestroyHealthBar();
+            FindObjectOfType<ObjectiveManager>().AddEnemyKnock();
             isKnocked = true;
             currentState = new Knockdown(gameObject,ConvertToTransform(opposingTeam),anim,agent);
         }
@@ -60,11 +63,13 @@ public class Enemy : CharacterBase
 
     public void Captured(Transform follow)
     {
+        isDead = false;
         currentState = new KnockCapture(gameObject, ConvertToTransform(opposingTeam), anim, agent, follow);
     }
 
     public void Imprisoned()
     {
+        FindObjectOfType<ObjectiveManager>().AddEnemyCapture();
         currentState = new Imprisoned(gameObject, ConvertToTransform(opposingTeam), anim, agent);
     }
 

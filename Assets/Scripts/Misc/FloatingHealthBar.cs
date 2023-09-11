@@ -7,6 +7,7 @@ public class FloatingHealthBar : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private List<Text> healthTexts = new List<Text>();
+    [SerializeField] private GameObject lineDivider;
     Slider healthBar;
     Slider ammoBar;
     float zOffset;
@@ -55,6 +56,24 @@ public class FloatingHealthBar : MonoBehaviour
         ammoBar.value = 100;
         ammoCost = 100 / capacity;
         this.regenCD = regenCD;
+
+        //Setup ammo line divider
+        float barWidth = ammoBar.GetComponent<RectTransform>().rect.width;
+        float gap = barWidth / capacity;
+        Debug.Log("Ammo Gap " + gap);
+
+        if(capacity > 1)
+        {
+            //lineDivider.SetActive(true);
+            float lastX = 0;
+            for (int i = 0; i < capacity-1; i++)
+            {
+                GameObject divLine = GameObject.Instantiate(lineDivider,ammoBar.transform);
+                divLine.SetActive(true);
+                lastX += gap;
+                divLine.GetComponent<RectTransform>().anchoredPosition = new Vector2(lastX, 0);
+            }
+        }
     }
 
     public void SetCurrentHP(float currentHP)

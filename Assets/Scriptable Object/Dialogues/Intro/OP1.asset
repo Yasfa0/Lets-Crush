@@ -16,85 +16,96 @@ MonoBehaviour:
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: haaa.. HAARIII YANG INDAAH
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Untuk memulai petualanganku ha.. ha.. haa..
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: b86c0b8c25b20a045a663cca67cc2957, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Aku Kaka, yang sudah berpengalaman dalam menjelajahi daerah yang mereka
       sebut kota.
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Aku Kaka, akan mempertaruhkan nyawaku sendiri, demi menjelajahi daerah
       yang masih asing ini.
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: b86c0b8c25b20a045a663cca67cc2957, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: hu..hu..hu.. bagaimana diriku..?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: b86c0b8c25b20a045a663cca67cc2957, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Perkenalan pembuka yang sangat menarik bukan ?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: b86c0b8c25b20a045a663cca67cc2957, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: 'hu..hu..hu.. tentu saja karena aku adalah KARAKTER UTAMA di cerita
       kali ini.... '
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: Kaka
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: 78ecef0e7c35ccb4bb276b8a06e2101c, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: HA.... HA.... HAAAA...
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: 
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Narrator
     charSprite:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 5b151bb0e24d0b44dab871f84957f893, type: 3}
+    - {fileID: 21300000, guid: b86c0b8c25b20a045a663cca67cc2957, type: 3}
     - {fileID: 0}
+    dimSprite: 000000
     dialogue: Kaka berjalan dengan santai menyusuri jalan desa, sembari menikmati
       pemandangan hamparann sawah luas.
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
-  - name: 
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
+  - name: Narrator
     charSprite:
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 6765b8b9e6736454a977ca1099c7234a, type: 3}
+    - {fileID: 21300000, guid: 60b5b576359d9af4dadaac5e3a6e9e2f, type: 3}
+    - {fileID: 21300000, guid: 115c4d4f38898f74db62db71d42b75d4, type: 3}
+    dimSprite: 000000
     dialogue: Tidak jauh, Kaka melihat sekelompok anak yang sedang mengusir sekelompok
       anak perempuan yang sedang bermain di poskamling
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   - name: 
     charSprite:
-    - {fileID: 21300000, guid: c9f65d7646eb8ba498aaf75180bca7f3, type: 3}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 21300000, guid: cef223b5d55bbcd49a957632512d382c, type: 3}
+    - {fileID: 21300000, guid: 6765b8b9e6736454a977ca1099c7234a, type: 3}
+    - {fileID: 21300000, guid: 60b5b576359d9af4dadaac5e3a6e9e2f, type: 3}
+    - {fileID: 21300000, guid: 115c4d4f38898f74db62db71d42b75d4, type: 3}
+    dimSprite: 000000
     dialogue: Kaka yang melihat itu berinisiatif untuk menghentikan kejahatan itu
-    textColor: {r: 0.33333334, g: 1, b: 0.15686275, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   choices:
   - text: Hei, kalian hentikan!
     choiceIndex: 1

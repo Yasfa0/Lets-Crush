@@ -15,12 +15,13 @@ MonoBehaviour:
   dialogues:
   - name: Ardie
     charSprite:
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 9767f8d4378ee6542a2c744ff1d0d11b, type: 3}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 08d815cd1cad54048b0f94084b234729, type: 3}
+    dimSprite: 010000
     dialogue: Kenapa!! hei siapa kau, aku belum pernah melihat wajah sepertimu disini,
       apa kau baru disini?
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   choices:
   - text: Iya, aku baru disini
     choiceIndex: 2

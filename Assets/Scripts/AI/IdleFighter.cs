@@ -44,7 +44,7 @@ public class MoveToNeutral : State
     public MoveToNeutral(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
     {
         name = STATE.MoveToNeutral;
-        agent.speed = 5;
+        agent.speed = 3;
         agent.isStopped = false;
     }
 
@@ -133,7 +133,7 @@ public class Pursue : State
     public Pursue(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
     {
         name = STATE.Pursue;
-        agent.speed = 5;
+        agent.speed = 3;
         agent.isStopped = false;
     }
 
@@ -145,8 +145,12 @@ public class Pursue : State
 
     public override void Update()
     {
-        agent.SetDestination(oppTarget.position);
-        Debug.Log("Pursue");
+        if(oppTarget != null)
+        {
+            agent.SetDestination(oppTarget.position);
+            Debug.Log("Pursue");
+        }
+
         if (agent.hasPath)
         {
             if (CanAttackPlayer())
