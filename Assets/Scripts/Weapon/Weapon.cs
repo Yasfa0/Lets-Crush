@@ -8,7 +8,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private AudioClip audioShoot;
     [SerializeField] Transform bulletSpawner;
     [SerializeField] GameObject indicator;
+    [SerializeField] private AmmoScriptable defaultAmmo;
     [SerializeField] List<AmmoScriptable> ammoList = new List<AmmoScriptable>();
+    private List<int> ammoCount = new List<int>();
     [SerializeField] int rateOfFire = 1;
     [SerializeField] float range = 4f;
     [SerializeField] int ammoCapacity = 2;
@@ -23,6 +25,41 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        if (GameData.GetSelectedAmmo().Count > 0)
+        {
+            ammoList.Clear();
+            ammoList.Add(defaultAmmo);
+            //ammoList = GameData.GetSelectedAmmo();
+            foreach (AmmoScriptable temp in GameData.GetSelectedAmmo())
+            {
+                ammoList.Add(temp);
+            }
+
+            ammoCount.Clear();
+            ammoCount.Add(9999);
+            foreach (int temp in GameData.GetAmmoCount())
+            {
+                ammoCount.Add(temp);
+            }
+        }
+        else
+        {
+            foreach (AmmoScriptable ammo in ammoList)
+            {
+                ammoCount.Add(10);
+            }
+        }
+
+        if (ammoList[currentAmmoIndex].isInfinite)
+        {
+            FindObjectOfType<WeaponBar>().SetAmmoCount("~");
+        }
+        else
+        {
+            FindObjectOfType<WeaponBar>().SetAmmoCount(ammoCount[currentAmmoIndex].ToString());
+        }
+
+        FindObjectOfType<WeaponBar>().SetAmmoIcon(ammoList[currentAmmoIndex].ammoIcon);
         statsBar = GetComponent<CharacterBase>().GetHealthBar();
         statsBar.SetupAmmoBar(ammoCapacity,regenCD);
     }
@@ -92,7 +129,38 @@ public class Weapon : MonoBehaviour
     {
         if (statsBar.GetCurrentAmmo() > 0)
         {
-            StartCoroutine(RoFShot());   
+            if (ammoCount[currentAmmoIndex] > 0)
+            {
+                GetComponent<CharacterBase>().SetHidden(false);
+                StartCoroutine(RoFShot());
+            }
+        }
+    }
+
+    public void AddNewAmmo(AmmoScriptable newAmmo, int amount)
+    {
+        //Kalau dah ada jenis ammo yang sama, tambahin jumlah ammo itu
+        //Kalau nggak ada, tambahin ammo baru dengan jumlah ammo baru
+
+        bool alreadyAvailable = false;
+        for (int i = 0; i < ammoList.Count; i++)
+        {
+            if (ammoList[i].ammoID == newAmmo.ammoID)
+            {
+                ammoCount[i] += amount;
+                alreadyAvailable = true;
+
+                if(ammoList[i].ammoID == ammoList[currentAmmoIndex].ammoID)
+                {
+                    FindObjectOfType<WeaponBar>().SetAmmoCount(ammoCount[i].ToString());
+                }
+            }
+        }
+
+        if (alreadyAvailable)
+        {
+            ammoList.Add(newAmmo);
+            ammoCount.Add(amount);
         }
     }
 
@@ -110,7 +178,17 @@ public class Weapon : MonoBehaviour
             currentAmmoIndex = ammoList.Count-1;
         }
 
+        Debug.Log("Current Ammo Index: " + currentAmmoIndex);
+        if (ammoList[currentAmmoIndex].isInfinite)
+        {
+            FindObjectOfType<WeaponBar>().SetAmmoCount("~");
+        }
+        else
+        {
+            FindObjectOfType<WeaponBar>().SetAmmoCount(ammoCount[currentAmmoIndex].ToString());
+        }
         FindObjectOfType<WeaponBar>().SetAmmoIcon(ammoList[currentAmmoIndex].ammoIcon);
+        //FindObjectOfType<WeaponBar>().SetAmmoCount(ammoCount[currentAmmoIndex].ToString());
     }
 
     IEnumerator RoFShot()
@@ -122,9 +200,15 @@ public class Weapon : MonoBehaviour
             lastShot = Time.time;
             GameObject bulletInstance = Instantiate(ammoList[currentAmmoIndex].ammoPrefab, bulletSpawner.position, Quaternion.identity);
             bulletInstance.transform.parent = null;
+            Debug.Log("Instantiated Bullet " + bulletInstance.name);
             AudioManagerY.Instance.PlayAudio(audioShoot,1);
             //bulletInstance.transform.Translate(bulletTarget * 100 * Time.deltaTime);
             bulletInstance.GetComponent<Ammo>().SetTargetPos(bulletDir, range);
+            if(ammoCount.Count > 0 && !ammoList[currentAmmoIndex].isInfinite)
+            {
+                ammoCount[currentAmmoIndex] -= 1;
+                FindObjectOfType<WeaponBar>().SetAmmoCount(ammoCount[currentAmmoIndex].ToString());
+            }
             yield return new WaitForSeconds(rofDelay);
         }
     }
@@ -162,6 +246,33 @@ public class Weapon : MonoBehaviour
     public bool GetIsAiming()
     {
         return isAiming;
+    }
+
+    public void SaveAmmoData()
+    {
+        SaveData currentSave = SaveSystem.LoadSave("save");
+
+        for (int i = 0; i < ammoList.Count; i++)
+        {
+            bool alreadyAvailable = false;
+            for (int j = 0; j < currentSave.ammoDatas.Count; j++)
+            {
+                if(currentSave.ammoDatas[j].ammoID == ammoList[i].ammoID)
+                {
+                    currentSave.ammoDatas[j].ammoCount += ammoCount[i];
+                    alreadyAvailable = true;
+                }
+            }
+
+            if (!alreadyAvailable)
+            {
+                AmmoData temp = new AmmoData();
+                temp.CreateFromScriptable(ammoList[i]);
+                currentSave.ammoDatas.Add(temp);
+            }
+
+        }
+        SaveSystem.SaveGame(currentSave, "save");
     }
 
 }

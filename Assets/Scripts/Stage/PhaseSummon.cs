@@ -8,5 +8,6 @@ public class PhaseSummon
     public GameObject summonPrefab;
     public int spawnAmount;
     public float cooldown;
+    public int maxWave;
     public float nextSummon;
 }

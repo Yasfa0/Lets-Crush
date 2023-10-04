@@ -21,7 +21,7 @@ public class StageOneObjective : ObjectiveManager
     {
         for (int i = 0; i < currentPhaseSummon.Count; i++)
         {
-            if (Time.time >= currentPhaseSummon[i].nextSummon)
+            if (Time.time >= currentPhaseSummon[i].nextSummon && currentPhaseSummon[i].maxWave > 0)
             {
                 currentPhaseSummon[i].nextSummon = Time.time + currentPhaseSummon[i].cooldown;
 
@@ -33,6 +33,7 @@ public class StageOneObjective : ObjectiveManager
                     GameObject tempSummon = Instantiate(currentPhaseSummon[i].summonPrefab);
                     tempSummon.transform.position = spawnPointList[rand].transform.position;
                 }
+                currentPhaseSummon[i].maxWave -= 1;
                 MapManager.Instance.FillTeams();
 
             }
@@ -72,6 +73,7 @@ public class StageOneObjective : ObjectiveManager
             GameObject tempSummon = Instantiate(bossPrefab);
             tempSummon.transform.position = spawnPointList[rand].transform.position;
             MapManager.Instance.FillTeams();
+            Camera.main.gameObject.GetComponent<CameraFollowTarget>().FocusCam(tempSummon.transform.position, 5f);
         }
     }
 

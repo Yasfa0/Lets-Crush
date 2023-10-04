@@ -113,11 +113,11 @@ MonoBehaviour:
   choices:
   - text: Ok kalau gitu aku pergi juga
     choiceIndex: 4
-    eventKey: 0
+    eventKey: -1
   - text: Kalau gitu aku lanjut jalan
     choiceIndex: 4
-    eventKey: 0
+    eventKey: -1
   - text: Raja iblis kabur, saatnya hero mundur
     choiceIndex: 4
-    eventKey: 0
-  eventIndex: 0
+    eventKey: -1
+  eventIndex: -1

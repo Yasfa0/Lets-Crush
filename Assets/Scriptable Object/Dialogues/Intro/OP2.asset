@@ -25,11 +25,11 @@ MonoBehaviour:
   choices:
   - text: Iya, aku baru disini
     choiceIndex: 2
-    eventKey: 0
+    eventKey: -1
   - text: Itu bukan urusanmu!
     choiceIndex: 2
-    eventKey: 0
+    eventKey: -1
   - text: Dasar kau raja iblis!
     choiceIndex: 2
-    eventKey: 0
+    eventKey: -1
   eventIndex: -1

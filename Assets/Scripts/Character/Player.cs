@@ -85,6 +85,7 @@ public class Player : CharacterBase
         if(currentHP <= 0)
         {
             GameObject lose = Instantiate(losePopUp, mainUI.transform);
+            FindObjectOfType<ObjectiveManager>().TogglePause(true);
             gameObject.SetActive(false);
             //Destroy(gameObject);
             ///SceneManager.LoadScene(SceneManager.GetActiveScene().name);

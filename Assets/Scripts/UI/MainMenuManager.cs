@@ -24,6 +24,25 @@ public class MainMenuManager : MonoBehaviour
         Screen.fullScreen = GameSetting.LoadSetting().isFullscreen;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SaveData tempSave = SaveSystem.LoadSave("save");
+           
+            foreach (AmmoData ammo in tempSave.ammoDatas)
+            {
+                 ammo.ammoCount += 10;
+            }
+
+            SaveSystem.SaveGame(tempSave,"save");
+            foreach (AmmoSelector ammoSelector in FindObjectsOfType<AmmoSelector>())
+            {
+                ammoSelector.UpdateSaveAmmo();
+            }
+        }
+    }
+
     public void SetSelectedStage(StageData selectedStage)
     {
         this.selectedStage = selectedStage;

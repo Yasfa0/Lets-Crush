@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
 public class DialogueController : MonoBehaviour
 {
     //Untuk Singleton
@@ -238,8 +239,16 @@ public class DialogueController : MonoBehaviour
     {
         Debug.Log("Skip Dialogue");
         Debug.Log("Current Speaker : " + currentSpeaker);
-        StartCoroutine(EndDialogue());
+        //StartCoroutine(EndDialogue());
+        currentSpeaker.ExecuteEvent(dialogueList[dialogueList.Count-1].eventIndex);
+        dialogueRoute = 0;
+        dialogueIndex = 0;
+        dialogueBox.SetActive(false);
+        talking = false;
+        Debug.Log("Ending dialogue");
     }
+
+    
 
     public IEnumerator EndDialogue()
     {
@@ -250,6 +259,7 @@ public class DialogueController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         talking = false;
         Debug.Log("Ending dialogue");
+
         //Dummy doang. Nanti hapus setelah ada kodingan player
         /*if (FindObjectOfType<PlayerMovement>())
         {

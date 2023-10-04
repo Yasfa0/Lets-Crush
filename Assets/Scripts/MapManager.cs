@@ -17,6 +17,11 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform enemyChaseLimit;
     [SerializeField] private Transform friendlyChaseLimit;
 
+    private List<ItemSpawner> itemSpawners = new List<ItemSpawner>();
+    [SerializeField] private List<GameObject> itemPrefabs = new List<GameObject>();
+    private float spawnTimer = 30;
+    private float lastItemSpawn;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,6 +33,15 @@ public class MapManager : MonoBehaviour
         }
 
         FillTeams();
+    }
+
+    private void Start()
+    {
+        foreach (ItemSpawner point in FindObjectsOfType<ItemSpawner>())
+        {
+            itemSpawners.Add(point);
+            Debug.Log("Added Spawn point " + point.name);
+        }
     }
 
     public void FillTeams()
@@ -44,6 +58,19 @@ public class MapManager : MonoBehaviour
         foreach (GameObject oppChar in GameObject.FindGameObjectsWithTag("Friendly"))
         {
            friendlyTeamCharacter.Add(oppChar);
+        }
+    }
+
+    private void Update()
+    {
+        if(Time.time -  lastItemSpawn > spawnTimer)
+        {
+            lastItemSpawn = Time.time;
+            int selectedPoint = Random.Range(0, itemSpawners.Count);
+            int selectedItem = Random.Range(0, itemPrefabs.Count);
+            Debug.Log("Selected Point Index " + selectedPoint);
+            itemSpawners[selectedPoint].SpawnItem(itemPrefabs[selectedItem]);
+            Debug.Log("Item Spawned");
         }
     }
 

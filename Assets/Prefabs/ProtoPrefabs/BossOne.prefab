@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioShoot: {fileID: 8300000, guid: 7660d767679a6d444a0d3ab044a31b70, type: 3}
-  maxHP: 1000
+  maxHP: 2000
   hpBarPrefab: {fileID: 2108746016752543178, guid: ffa75d7542da1b84287bde4c47fdf1da, type: 3}
   hpbarOffset: {x: 0, y: 4, z: 3.5}
   bulletSpawner: {fileID: 7841004144672827676}
@@ -215,6 +215,10 @@ MonoBehaviour:
   rateOfFire: 2
   ammoPrefab: {fileID: 6360847198384977959, guid: 6dca533062b9b784cbd96d1a2e116278, type: 3}
   regenCD: 2
+  specialAttack: {fileID: 4671177519192080130, guid: c800f81b12764304c8844ad597e59457, type: 3}
+  randomAmmoList:
+  - {fileID: 6360847198384977959, guid: 689c794254526764c95c328e658d044e, type: 3}
+  - {fileID: 6360847198384977959, guid: 452dfb98b48eb3c479a95d95eb509193, type: 3}
 --- !u!1 &4575136910101584724
 GameObject:
   m_ObjectHideFlags: 0

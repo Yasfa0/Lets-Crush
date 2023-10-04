@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edd32e63ef9cfb49869be3b46afee5f, type: 3}
   m_Name: Kersem Matang
   m_EditorClassIdentifier: 
+  ammoID: 3
   ammoName: Kersem Matang
   ammoIcon: {fileID: 1092501868, guid: b7b6fcd0311b9ee46af4411a0079e662, type: 3}
   ammoPrefab: {fileID: 6360847198384977959, guid: 88a66706fd575944481fc3dc54024b58, type: 3}
+  isInfinite: 0

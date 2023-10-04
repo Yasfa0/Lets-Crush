@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         moveDir = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
-        if(moveDir.magnitude >= 0.1f)
+        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+
+        if (moveDir.magnitude >= 0.1f)
         {
             if (!playerWeapon.GetIsAiming())
             {
@@ -61,7 +63,8 @@ public class PlayerMovement : MonoBehaviour
                     {
                         cap.GetComponent<Enemy>().Imprisoned();
                         cap.GetComponent<CharacterBase>().GetHealthBar().DestroyHealthBar();
-                        Destroy(cap);
+                        collider.GetComponent<Penjara>().PutInJail(cap);
+                        //Destroy(cap);
                         //cap.transform.position = new Vector3(-999,-999,-999);
                     }
                     MapManager.Instance.FillTeams();

@@ -20,8 +20,10 @@ public class State
     protected Animator anim;
     protected NavMeshAgent agent;
 
-    float visDist = 15f;
+    float visDist = 12f;
     float visAngle = 30f;
+
+    float scanDist = 4;
 
     protected float weapRange = 6f;
     protected GameObject ammoPrefab;
@@ -111,6 +113,7 @@ public class State
         }
     }
 
+    //Radar Vision
     public bool CanSeePlayer()
     {
         oppTarget = CalcOppClosest();
@@ -119,6 +122,26 @@ public class State
         float angle = Vector3.Angle(direction, npc.transform.forward);
 
         if (direction.magnitude < visDist && angle <= visAngle)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool GetOppHideStats()
+    {
+        oppTarget = CalcOppClosest();
+        return oppTarget.GetComponent<CharacterBase>().GetHidden();
+    }
+
+    //Radar Scan
+    public bool CanScanPlayer()
+    {
+        oppTarget = CalcOppClosest();
+        Vector3 direction = oppTarget.position - npc.transform.position;
+
+        if (direction.magnitude < scanDist)
         {
             return true;
         }

@@ -15,6 +15,7 @@ public class DialogueChangeSceneEnd : MonoBehaviour, IDialogueEvent
 
     public void StartEvent()
     {
+        Debug.Log("Loading Scene " + sceneName);
         SceneManager.LoadScene(sceneName);
         //FindObjectOfType<SceneLoading>().LoadScene(sceneName, 0);
     }

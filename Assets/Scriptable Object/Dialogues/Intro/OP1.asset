@@ -109,8 +109,8 @@ MonoBehaviour:
   choices:
   - text: Hei, kalian hentikan!
     choiceIndex: 1
-    eventKey: 0
+    eventKey: -1
   - text: Wahai kejahatan, hentikan tindakanmu!
     choiceIndex: 1
-    eventKey: 0
-  eventIndex: 0
+    eventKey: -1
+  eventIndex: -1

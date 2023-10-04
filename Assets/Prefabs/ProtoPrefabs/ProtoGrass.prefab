@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1598983650373955877}
   - component: {fileID: 1598983650373955876}
   - component: {fileID: 1598983650373955879}
+  - component: {fileID: 5007749752311734302}
+  - component: {fileID: 598041721758787775}
   m_Layer: 0
   m_Name: ProtoGrass
   m_TagString: Untagged
@@ -102,6 +104,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5007749752311734302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598983650373955878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11941a13cd9b84f4b8f20a2615abcb46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &598041721758787775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598983650373955878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59a9a0186ef88b48b0e24e4b5ac5281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &722139248369373375
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,7 +19,14 @@ public class IdleFighter : State
     {
         Debug.Log("IdleFighter");
 
-        if (WithinCustomDistance(20))
+        //Kalau ada di radar vision, dan nggak hidden, kejar
+        //Kalau ada di radar scan, kejar
+        if (CanSeePlayer() && !GetOppHideStats())
+        {
+            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            stage = EVENT.EXIT;
+        }
+        else if (CanScanPlayer())
         {
             nextState = new Pursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
@@ -61,11 +68,25 @@ public class MoveToNeutral : State
     {
         //Debug.Log("Move To Benteng" + targetBenteng.transform.position);
         Debug.Log("Move to Neutral");
-        if (WithinCustomDistance(20))
+        /*if (WithinCustomDistance(20))
+        {
+            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            stage = EVENT.EXIT;
+        }*/
+
+        //Kalau ada di radar vision, dan nggak hidden, kejar
+        //Kalau ada di radar scan, kejar
+        if (CanSeePlayer() && !GetOppHideStats())
         {
             nextState = new Pursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
+        else if (CanScanPlayer())
+        {
+            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            stage = EVENT.EXIT;
+        }
+        
 
         if (agent.hasPath)
         {
@@ -159,9 +180,10 @@ public class Pursue : State
                 stage = EVENT.EXIT;
 
             }
-            else if (!CanSeePlayer())
+            else if (!CanSeePlayer()|| GetOppHideStats())
             {
-                nextState = new IdleFighter(npc, opposingTeam, anim, agent);
+                nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+                //nextState = new IdleFighter(npc, opposingTeam, anim, agent);
                 //nextState = new Patrol(npc, player, anim, agent);
                 stage = EVENT.EXIT;
             }
@@ -213,7 +235,7 @@ public class FighterShoot : State
                 stage = EVENT.EXIT;
             }*/
 
-            if (!CanSeePlayerDistance(weapRange))
+            if (!CanSeePlayerDistance(weapRange) || GetOppHideStats())
             {
                 //nextState = new Idle(npc, player, anim, agent);
                 //nextState = new IdleFighter(npc, player, anim, agent);

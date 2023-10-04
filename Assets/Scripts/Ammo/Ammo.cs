@@ -42,16 +42,22 @@ public class Ammo : MonoBehaviour
         if(collision.gameObject.tag == "Enemy" && isFriendly)
         {
             HitEnemy(collision.gameObject);
-        }else if (collision.gameObject.tag == "Obstacle")
+            Debug.Log("Hit Enemy");
+        }
+        else if (collision.gameObject.tag == "Obstacle")
         {
-            HitObstacle();
+            HitObstacle(collision.gameObject);
+            Debug.Log("Hit Obstacle");
         }
         else if (collision.gameObject.tag == "Benteng")
         {
             HitBenteng(collision.gameObject);
-        }else if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Friendly" && !isFriendly)
+            Debug.Log("Hit Benteng");
+        }
+        else if(collision.gameObject.tag == "Player" && !isFriendly || collision.gameObject.tag == "Friendly" && !isFriendly)
         {
             HitPlayer(collision.gameObject);
+            Debug.Log("Hit Player");
         }
     }
 
@@ -72,7 +78,7 @@ public class Ammo : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual void HitObstacle()
+    public virtual void HitObstacle(GameObject obstacle)
     {
         Destroy(gameObject);
     }

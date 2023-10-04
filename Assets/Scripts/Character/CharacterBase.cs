@@ -26,6 +26,17 @@ public class CharacterBase : MonoBehaviour
     protected Vector3 pushDirection = new Vector3();
     protected bool isPushed = false;
 
+    protected bool hidden;
+
+    public void SetHidden(bool hidden)
+    {
+        this.hidden = hidden;
+    }
+
+    public bool GetHidden()
+    {
+        return hidden;
+    }
 
     protected void Update()
     {
@@ -89,7 +100,7 @@ public class CharacterBase : MonoBehaviour
     public virtual void SetupHealthBar()
     {
         currentHP = maxHP;
-        hpBarInstance = Instantiate(hpBarPrefab, transform.position + hpbarOffset, Quaternion.Euler(70, 0, 0), null).GetComponent<FloatingHealthBar>();
+        hpBarInstance = Instantiate(hpBarPrefab, transform.position + hpbarOffset, Quaternion.Euler(hpBarPrefab.GetComponent<RectTransform>().localRotation.eulerAngles.x, 0, 0), null).GetComponent<FloatingHealthBar>();
         hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP);
     }
 
@@ -114,10 +125,11 @@ public class CharacterBase : MonoBehaviour
     {
         if (hpBarInstance.GetCurrentAmmo() > 0)
         {
+            hidden = false;
             StartCoroutine(RoFShot());
         }
     }
-    IEnumerator RoFShot()
+    public virtual IEnumerator RoFShot()
     {
         hpBarInstance.ReduceAmmo();
         for (int i = 0; i < rateOfFire; i++)

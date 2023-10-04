@@ -156,11 +156,11 @@ MonoBehaviour:
   choices:
   - text: Hmmm
     choiceIndex: 3
-    eventKey: 0
+    eventKey: -1
   - text: Yang kau maksud itu Justice man?
     choiceIndex: 3
-    eventKey: 0
+    eventKey: -1
   - text: Aku suka gayamu
     choiceIndex: 3
-    eventKey: 0
-  eventIndex: 0
+    eventKey: -1
+  eventIndex: -1

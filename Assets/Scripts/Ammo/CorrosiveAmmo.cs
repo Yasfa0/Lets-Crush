@@ -6,7 +6,7 @@ public class CorrosiveAmmo : Ammo
 {
     [SerializeField] private GameObject corrosionPrefab;
 
-    public override void HitObstacle()
+    public override void HitObstacle(GameObject obstacle)
     {
         Debug.Log("Hit Obstacle");
         GameObject corrosionInst = Instantiate(corrosionPrefab,gameObject.transform.position,Quaternion.identity);

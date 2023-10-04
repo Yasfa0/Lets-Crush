@@ -29,7 +29,7 @@ public class DialogueSpeaker : MonoBehaviour
         {
             if (dialogueEvent.GetEventId() == eventIndex)
             {
-                //dialogueEvent.StartEvent();
+                dialogueEvent.StartEvent();
                 executedEvents.Add(dialogueEvent);
             }
         }
@@ -38,7 +38,6 @@ public class DialogueSpeaker : MonoBehaviour
         {
             exEvent.StartEvent();
         }
-
     } 
 
 }

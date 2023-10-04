@@ -71,4 +71,4 @@ MonoBehaviour:
     dialogue: Selamat datang kawan!
     textColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
   choices: []
-  eventIndex: 1
+  eventIndex: 0

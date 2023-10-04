@@ -19,14 +19,31 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] protected List<Objective> hiddenObjective = new List<Objective>();
     protected int currentPhase = 1;
 
+    [SerializeField] protected List<AmmoScriptable> availableReward = new List<AmmoScriptable>();
+
     [SerializeField] protected GameObject objectiveBoxPrefab;
     [SerializeField] protected GameObject rewardBoxPrefab;
     [SerializeField] protected TextMeshProUGUI phaseText;
     protected List<GameObject> objectiveBoxList = new List<GameObject>();
 
+    protected bool gamePaused = false;
+
     protected void Awake()
     {
         SetupCurrentObjective();
+    }
+
+    public void TogglePause(bool gamePaused)
+    {
+        this.gamePaused = gamePaused;
+        if (this.gamePaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void SetupCurrentObjective()
@@ -132,7 +149,9 @@ public class ObjectiveManager : MonoBehaviour
             {
                 //Level Cleared
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                Instantiate(rewardBoxPrefab, gameObject.transform.parent);
+                GameObject reward = Instantiate(rewardBoxPrefab, gameObject.transform.parent);
+                reward.GetComponent<RewardBox>().GenerateReward(5,availableReward);
+                TogglePause(true);
             }
             else
             {

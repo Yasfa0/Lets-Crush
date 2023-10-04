@@ -8,10 +8,11 @@ public class WeaponBar : MonoBehaviour
     [SerializeField] private Image ammoIcon;
     [SerializeField] private List<Image> slotImg = new List<Image>();
     [SerializeField] private Sprite emptySlotImg;
+    [SerializeField] private Text ammoCount;
 
-    private void Start()
+    public void SetAmmoCount(string ammo)
     {
-        
+        ammoCount.text = ammo.ToString();
     }
 
     public void SetAmmoIcon(Sprite icon)
