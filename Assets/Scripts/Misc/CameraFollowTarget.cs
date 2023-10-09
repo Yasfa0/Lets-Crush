@@ -10,6 +10,7 @@ public class CameraFollowTarget : MonoBehaviour
     [SerializeField] private float[] camZLimit = new float[2]; 
     float zOffset;
     float yOffset;
+    float xOffset;
     [SerializeField] private Vector3 bossOffset = new Vector3();
     private bool isFollowing = true;
     private bool isFocusing = false;
@@ -22,6 +23,7 @@ public class CameraFollowTarget : MonoBehaviour
         mainCamera = Camera.main;
         zOffset = target.transform.position.z - transform.position.z;
         yOffset = target.transform.position.y - transform.position.y;
+        xOffset = target.transform.position.x - transform.position.x;
     }
 
     private void Update()
@@ -29,7 +31,8 @@ public class CameraFollowTarget : MonoBehaviour
         if (isFollowing)
         {
             //if(transform.position.z >= camZLimit[0] && transform.position.z <= camZLimit[1])
-            transform.position = Vector3.Slerp(transform.position, new Vector3(transform.position.x, zOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
+            //transform.position = Vector3.Slerp(transform.position, new Vector3(target.transform.position.x - xOffset, zOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
+            transform.position = Vector3.Slerp(transform.position, new Vector3(target.transform.position.x - xOffset, target.transform.position.y - yOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
             transform.eulerAngles = new Vector3(followRot,0,0);
         }
 

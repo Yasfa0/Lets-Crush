@@ -56,6 +56,13 @@ public class PreparationManager : MonoBehaviour
 
         SaveSystem.SaveGame(currentSave, "save");
 
-        SceneManager.LoadScene(FindObjectOfType<MainMenuManager>().getSelectedStage().sceneName);
+        if (FindObjectOfType<SceneLoading>())
+        {
+            FindObjectOfType<SceneLoading>().LoadScene(FindObjectOfType<MainMenuManager>().getSelectedStage().sceneName, 0);
+        }
+        else
+        {
+            SceneManager.LoadScene(FindObjectOfType<MainMenuManager>().getSelectedStage().sceneName);
+        }
     }
 }

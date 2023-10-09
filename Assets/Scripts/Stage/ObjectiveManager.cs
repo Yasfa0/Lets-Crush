@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public enum GoalType {KnockEnemy, CaptureEnemy, KnockBoss, AcquireItem }
+public enum GoalType {KnockEnemy, CaptureEnemy, KnockBoss, CaptureBoss, DefendTower, DestroyTower, AcquireItem }
 
 public class ObjectiveManager : MonoBehaviour
 {
     protected int enemyKnocked = 0;
     protected int enemyCapture = 0;
     protected int bossKnocked = 0;
+    protected int bossCaptured = 0;
+    protected bool enemyTowerDestroyed = false;
+    protected bool playerTowerDestroyed = false;
     protected int itemAcquired = 0;
 
     protected List<Objective> currentPhaseObjective = new List<Objective>();
@@ -120,6 +123,24 @@ public class ObjectiveManager : MonoBehaviour
                             currentPhaseObjective[i].isComplete = true;
                         }
                         break;
+                    case GoalType.CaptureBoss:
+                        if (bossCaptured >= currentPhaseObjective[i].countTarget)
+                        {
+                            currentPhaseObjective[i].isComplete = true;
+                        }
+                        break;
+                    case GoalType.DefendTower:
+                        if (!playerTowerDestroyed)
+                        {
+                            currentPhaseObjective[i].isComplete = true;
+                        }
+                        break;
+                    case GoalType.DestroyTower:
+                        if (enemyTowerDestroyed)
+                        {
+                            currentPhaseObjective[i].isComplete = true;
+                        }
+                        break;
                     case GoalType.AcquireItem:
                         if (itemAcquired >= currentPhaseObjective[i].countTarget)
                         {
@@ -172,6 +193,18 @@ public class ObjectiveManager : MonoBehaviour
         CheckObjective();
     }
 
+    public void EnemyTowerDestroyed()
+    {
+        enemyTowerDestroyed = true;
+        CheckObjective();
+    }
+
+    public void PlayerTowerDestroyed()
+    {
+        playerTowerDestroyed = true;
+        CheckObjective();
+    }
+
     public void AddEnemyCapture()
     {
         enemyCapture += 1;
@@ -180,6 +213,12 @@ public class ObjectiveManager : MonoBehaviour
     public void AddBossKnock()
     {
         bossKnocked += 1;
+        CheckObjective();
+    }
+
+    public void AddBossCapture()
+    {
+        bossCaptured += 1;
         CheckObjective();
     }
 

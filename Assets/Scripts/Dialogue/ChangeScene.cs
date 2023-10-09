@@ -15,6 +15,13 @@ public class ChangeScene : MonoBehaviour, IDialogueEvent
 
     public void StartEvent()
     {
-        SceneManager.LoadScene(sceneName);
+        if (FindObjectOfType<SceneLoading>())
+        {
+            FindObjectOfType<SceneLoading>().LoadScene(sceneName, 0);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Benteng : MonoBehaviour
 {
+    [SerializeField] private bool isFriendly = true;
     [SerializeField] private float maxHP = 1000f;
     [SerializeField] private GameObject hpBarPrefab;
     [SerializeField] private Vector3 hpbarOffset = new Vector3(0,4f,3.5f);
@@ -18,12 +19,6 @@ public class Benteng : MonoBehaviour
         hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void TakeDamage(float dmgTaken)
     {
         currentHP = currentHP - dmgTaken;
@@ -31,7 +26,15 @@ public class Benteng : MonoBehaviour
 
         if(currentHP <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (isFriendly)
+            {
+                FindObjectOfType<ObjectiveManager>().PlayerTowerDestroyed();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                FindObjectOfType<ObjectiveManager>().EnemyTowerDestroyed();
+            }
         }
     }
 }

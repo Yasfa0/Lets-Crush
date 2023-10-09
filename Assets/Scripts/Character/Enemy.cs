@@ -67,7 +67,7 @@ public class Enemy : CharacterBase
         currentState = new KnockCapture(gameObject, ConvertToTransform(opposingTeam), anim, agent, follow);
     }
 
-    public void Imprisoned()
+    public virtual void Imprisoned()
     {
         FindObjectOfType<ObjectiveManager>().AddEnemyCapture();
         currentState = new Imprisoned(gameObject, ConvertToTransform(opposingTeam), anim, agent);
@@ -82,4 +82,5 @@ public class Enemy : CharacterBase
     {
         this.currentState = currentState;
     }
+
 }

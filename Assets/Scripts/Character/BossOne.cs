@@ -91,4 +91,10 @@ public class BossOne : Enemy
         }
     }
 
+    public override void Imprisoned()
+    {
+        FindObjectOfType<ObjectiveManager>().AddBossCapture();
+        currentState = new Imprisoned(gameObject, ConvertToTransform(opposingTeam), anim, agent);
+    }
+
 }
