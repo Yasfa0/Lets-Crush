@@ -47,6 +47,17 @@ public class Enemy : CharacterBase
     {
         if(currentHP <= 0 && !isDead)
         {
+            int laneMask = 0;
+            laneMask += 1 << NavMesh.GetAreaFromName("LaneOne");
+            laneMask += 1 << NavMesh.GetAreaFromName("LaneTwo");
+            laneMask += 1 << NavMesh.GetAreaFromName("LaneThree");
+            //int laneMask = agent.areaMask;
+            //laneMask = 1;
+            //laneMask += 1 << NavMesh.GetAreaFromName("Everything");
+            //laneMask -= 1 << NavMesh.GetAreaFromName("Obstacle");
+
+            agent.areaMask = laneMask;
+
             isDead = true;
             //hpBarInstance.DestroyHealthBar();
             FindObjectOfType<ObjectiveManager>().AddEnemyKnock();

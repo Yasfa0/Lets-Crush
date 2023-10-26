@@ -21,12 +21,12 @@ public class IdleBossOne : State
 
         //Kalau ada di radar vision, dan nggak hidden, kejar
         //Kalau ada di radar scan, kejar
-        if (CanSeePlayer() && !GetOppHideStats())
+        if (CanSeeOpponent() && !GetOppHideStats())
         {
             nextState = new BossOnePursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
-        else if (CanScanPlayer())
+        else if (CanScanOpponent())
         {
             nextState = new BossOnePursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
@@ -76,12 +76,12 @@ public class BossOneNeutral : State
 
         //Kalau ada di radar vision, dan nggak hidden, kejar
         //Kalau ada di radar scan, kejar
-        if (CanSeePlayer() && !GetOppHideStats())
+        if (CanSeeOpponent() && !GetOppHideStats())
         {
             nextState = new BossOnePursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
-        else if (CanScanPlayer())
+        else if (CanScanOpponent())
         {
             nextState = new BossOnePursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
@@ -133,13 +133,13 @@ public class BossOnePursue : State
 
         if (agent.hasPath)
         {
-            if (CanAttackPlayer())
+            if (CanScanOpponent())
             {
                 nextState = new BossOneShoot(npc, opposingTeam, anim, agent);
                 stage = EVENT.EXIT;
 
             }
-            else if (!CanSeePlayer() || GetOppHideStats())
+            else if (!CanSeeOpponent() || GetOppHideStats())
             {
                 nextState = new BossOneNeutral(npc, opposingTeam, anim, agent);
                 //nextState = new IdleFighter(npc, opposingTeam, anim, agent);
@@ -194,7 +194,7 @@ public class BossOneShoot : State
                 stage = EVENT.EXIT;
             }*/
 
-            if (!CanSeePlayerDistance(weapRange) || GetOppHideStats())
+            if (!CanScanOpponent() || GetOppHideStats())
             {
                 //nextState = new Idle(npc, player, anim, agent);
                 //nextState = new IdleFighter(npc, player, anim, agent);

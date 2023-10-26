@@ -18,7 +18,7 @@ GameObject:
   m_Name: s2Obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 7
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8625058838895945929
@@ -196,6 +196,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
       propertyPath: m_Name
       value: jerami tebel astgaa (1)
@@ -203,6 +219,22 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
@@ -274,6 +306,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
       propertyPath: m_Name
       value: jerami tebel astgaa
@@ -281,6 +329,22 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd20e8ac368859c499c5d62f14d7eff1, type: 3}

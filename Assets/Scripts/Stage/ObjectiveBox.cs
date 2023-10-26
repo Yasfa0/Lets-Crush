@@ -37,6 +37,21 @@ public class ObjectiveBox : MonoBehaviour
             case GoalType.KnockBoss:
                 currentCount = FindObjectOfType<ObjectiveManager>().GetBossKnock().ToString();
                 break;
+            case GoalType.CaptureBoss:
+                currentCount = FindObjectOfType<ObjectiveManager>().GetBossCapture().ToString();
+                break;
+            case GoalType.DefendTower:
+                if (!FindObjectOfType<ObjectiveManager>().GetPlayerTowerDestroyed())
+                {
+                    currentCount = "1";
+                }
+                break;
+            case GoalType.DestroyTower:
+                if (FindObjectOfType<ObjectiveManager>().GetEnemyTowerDestroyed())
+                {
+                    currentCount = "1";
+                }
+                break;
             case GoalType.AcquireItem:
                 currentCount = FindObjectOfType<ObjectiveManager>().GetItemAcquired().ToString();
                 break;

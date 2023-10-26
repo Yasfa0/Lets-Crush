@@ -1221,5 +1221,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cffc7408e1c934eb9f22012f6fa94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: MainMenuFixY
+  mainMenuScene: MainMenuY2
   pauseMenu: {fileID: 2118999069996110359}

@@ -8,6 +8,9 @@ public enum GoalType {KnockEnemy, CaptureEnemy, KnockBoss, CaptureBoss, DefendTo
 
 public class ObjectiveManager : MonoBehaviour
 {
+    //Untuk Singleton
+    public static ObjectiveManager Instance { get; private set; }
+
     protected int enemyKnocked = 0;
     protected int enemyCapture = 0;
     protected int bossKnocked = 0;
@@ -27,13 +30,36 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] protected GameObject objectiveBoxPrefab;
     [SerializeField] protected GameObject rewardBoxPrefab;
     [SerializeField] protected TextMeshProUGUI phaseText;
+    [SerializeField] protected DialogueController dialogueController;
     protected List<GameObject> objectiveBoxList = new List<GameObject>();
 
     protected bool gamePaused = false;
 
     protected void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         SetupCurrentObjective();
+    }
+
+
+    public bool GetPause()
+    {
+        return gamePaused;
+    }
+
+    public virtual void WinDialogue()
+    {
+        dialogueController.gameObject.SetActive(true);
+        TogglePause(true);
+        FindObjectOfType<CallDialogueSpeaker>().StartDialogue();
     }
 
     public void TogglePause(bool gamePaused)
@@ -172,6 +198,10 @@ public class ObjectiveManager : MonoBehaviour
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 GameObject reward = Instantiate(rewardBoxPrefab, gameObject.transform.parent);
                 reward.GetComponent<RewardBox>().GenerateReward(5,availableReward);
+                if (FindObjectOfType<CallDialogueSpeaker>())
+                {
+                    WinDialogue();
+                }
                 TogglePause(true);
             }
             else
@@ -236,6 +266,21 @@ public class ObjectiveManager : MonoBehaviour
     public int GetEnemyCapture()
     {
         return enemyCapture;
+    }
+
+    public bool GetEnemyTowerDestroyed()
+    {
+        return enemyTowerDestroyed;
+    }
+
+    public bool GetPlayerTowerDestroyed()
+    {
+        return playerTowerDestroyed;
+    }
+
+    public int GetBossCapture()
+    {
+        return bossCaptured;
     }
 
     public int GetBossKnock()

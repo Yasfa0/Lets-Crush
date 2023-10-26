@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: Tantangan3
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Justip-man
+    charSprite:
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 21300000, guid: 08d815cd1cad54048b0f94084b234729, type: 3}
+    dimSprite: 010001
+    dialogue: Ngapain kau raja iblis, datang ke markas kita ?
+    textColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: Justip-man
+    charSprite:
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 21300000, guid: b812af111c75ab949a211ee19627e44c, type: 3}
+    dimSprite: 010100
+    dialogue: Siapa yang kau maksud raja iblis, dasar orang halu!
+    textColor: {r: 0, g: 0, b: 0, a: 1}
+  - name: Justip-man
+    charSprite:
+    - {fileID: 21300000, guid: 4f6ffefb0db99b348a16ac08b9413461, type: 3}
+    - {fileID: 21300000, guid: fb60ac11ac861964f85211396f24317f, type: 3}
+    - {fileID: 21300000, guid: 08d815cd1cad54048b0f94084b234729, type: 3}
+    dimSprite: 010001
+    dialogue: Siapa yang kau maksud halu Haaa!?
+    textColor: {r: 0, g: 0, b: 0, a: 1}
+  choices:
+  - text: Aku bingung gimana ngeresponya..
+    choiceIndex: 3
+    eventKey: -1
+  - text: Mereka dua memang cocok ya!
+    choiceIndex: 3
+    eventKey: -1
+  - text: Pertengkaran gini memang dibutuhkan
+    choiceIndex: 3
+    eventKey: -1
+  eventIndex: -1

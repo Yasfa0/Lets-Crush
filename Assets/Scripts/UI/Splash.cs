@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Splash : MonoBehaviour
 {
+    [SerializeField] private int dialogueID;
     static bool alreadyCloses = false;
 
     private void Awake()
@@ -18,5 +19,6 @@ public class Splash : MonoBehaviour
     {
         alreadyCloses = true;
         gameObject.SetActive(false);
+        MainMenuManager.Instance.StartCallDialogue(dialogueID);
     }
 }

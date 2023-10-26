@@ -12,8 +12,8 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<Transform> neutralPoints = new List<Transform>();
     [SerializeField] private BaseChecker playerBaseChecker;
     [SerializeField] private BaseChecker enemyBaseChecker;
-    [SerializeField] private List<GameObject> enemySpawnPosts = new List<GameObject>();
-    [SerializeField] private List<GameObject> playerSpawnPosts = new List<GameObject>();
+    [SerializeField] private List<LaneSpawn> enemySpawnPoint = new List<LaneSpawn>();
+    [SerializeField] private List<LaneSpawn> playerSpawnPoint = new List<LaneSpawn>();
     [SerializeField] private Transform enemyChaseLimit;
     [SerializeField] private Transform friendlyChaseLimit;
 
@@ -94,14 +94,14 @@ public class MapManager : MonoBehaviour
         return enemyBaseChecker;
     }
 
-    public List<GameObject> GetEnemyPosts()
+    public List<LaneSpawn> GetEnemyPosts()
     {
-        return enemySpawnPosts;
+        return enemySpawnPoint;
     }
 
-    public List<GameObject> GetPlayerPosts()
+    public List<LaneSpawn> GetPlayerPosts()
     {
-        return playerSpawnPosts;
+        return playerSpawnPoint;
     }
 
     public Transform GetEnemyChaseLimit()

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioShoot: {fileID: 8300000, guid: 7660d767679a6d444a0d3ab044a31b70, type: 3}
-  maxHP: 1000
+  maxHP: 200
   hpBarPrefab: {fileID: 2108746016752543178, guid: ffa75d7542da1b84287bde4c47fdf1da, type: 3}
   hpbarOffset: {x: 0, y: 4, z: 3.5}
   bulletSpawner: {fileID: 5804955277665055709}

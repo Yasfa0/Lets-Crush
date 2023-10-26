@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class State
 {
-    public enum STATE { Idle, IdleAtk, IdleFighter, MoveToNeutral, WanderNeutral, Pursue, MoveBlock, BackToBase, MoveToBenteng, Shoot, 
+    public enum STATE { Idle, IdleAtk, IdleFighter, MoveToNeutral, Pursue, MoveBlock, BackToBase, MoveToBenteng, Shoot, 
         FighterShoot,KnockAttack, Knockdown, KnockCapture, Imprisoned, Sticky }
     public enum EVENT { ENTER, UPDATE, EXIT }
 
@@ -14,18 +14,20 @@ public class State
     protected State nextState;
 
     protected GameObject npc;
-    //protected Transform player;
     protected List<Transform> opposingTeam = new List<Transform>();
     protected Transform oppTarget;
     protected Animator anim;
     protected NavMeshAgent agent;
 
-    float visDist = 12f;
-    float visAngle = 30f;
+    protected float visDist = 8f;
 
-    float scanDist = 4;
+    //It's currently set to 60 degrees 
+    //Need confirmation
+    protected float visAngle = 30f;
 
-    protected float weapRange = 6f;
+    protected float scanDist = 5;
+
+
     protected GameObject ammoPrefab;
     protected Transform bulletSpawner;
 
@@ -62,6 +64,7 @@ public class State
         return name;
     }
 
+    //Calculate closest target
     public Transform CalcOppClosest()
     {
         List<Vector3> directions = new List<Vector3>();
@@ -69,15 +72,18 @@ public class State
         List<Transform> livingOpponent = new List<Transform>();
         int closestIndex = 0;
         List<GameObject> oppLists = new List<GameObject>();
+        GameObject oppBenteng;
 
         MapManager.Instance.FillTeams();
         if(agent.gameObject.tag == "Enemy")
         {
             oppLists = MapManager.Instance.GetFriendlyTeam();
+            oppBenteng = MapManager.Instance.GetBentengPlayer();
         }
         else
         {
             oppLists = MapManager.Instance.GetEnemyTeam();
+            oppBenteng = MapManager.Instance.GetBentengEnemy();
         }
 
         //Check if opposing character is alive
@@ -94,6 +100,8 @@ public class State
             directions.Add(opp.position - npc.transform.position);
         }
 
+        directions.Add(oppBenteng.transform.position - npc.transform.position);
+
         for (int i = 0; i < directions.Count; i++)
         {
             if (directions[i].magnitude < closestRange)
@@ -105,6 +113,7 @@ public class State
 
         if (livingOpponent.Count>0)
         {
+            livingOpponent.Add(oppBenteng.transform);
             return livingOpponent[closestIndex];
         }
         else
@@ -114,21 +123,25 @@ public class State
     }
 
     //Radar Vision
-    public bool CanSeePlayer()
+    public bool CanSeeOpponent()
     {
         oppTarget = CalcOppClosest();
-        Vector3 direction = oppTarget.position - npc.transform.position;
-
-        float angle = Vector3.Angle(direction, npc.transform.forward);
-
-        if (direction.magnitude < visDist && angle <= visAngle)
+        if (oppTarget)
         {
-            return true;
+            Vector3 direction = oppTarget.position - npc.transform.position;
+
+            float angle = Vector3.Angle(direction, npc.transform.forward);
+
+            if (direction.magnitude < visDist && angle <= visAngle)
+            {
+                return true;
+            }
         }
 
         return false;
     }
 
+    //Check hide status
     public bool GetOppHideStats()
     {
         oppTarget = CalcOppClosest();
@@ -136,14 +149,17 @@ public class State
     }
 
     //Radar Scan
-    public bool CanScanPlayer()
+    public bool CanScanOpponent()
     {
         oppTarget = CalcOppClosest();
-        Vector3 direction = oppTarget.position - npc.transform.position;
-
-        if (direction.magnitude < scanDist)
+        if (oppTarget)
         {
-            return true;
+            Vector3 direction = oppTarget.position - npc.transform.position;
+
+            if (direction.magnitude < scanDist)
+            {
+                return true;
+            }
         }
 
         return false;
@@ -179,20 +195,7 @@ public class State
         return false;
     }
 
-    public bool CanSeePlayerDistance(float distance)
-    {
-        oppTarget = CalcOppClosest();
-        Vector3 direction = oppTarget.position - npc.transform.position;
-        float angle = Vector3.Angle(direction, npc.transform.forward);
-
-        if (direction.magnitude < distance && angle <= visAngle)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public bool WithinShootDistance()
+    /*public bool WithinShootDistance()
     {
         oppTarget = CalcOppClosest();
         Vector3 direction = oppTarget.position - npc.transform.position;
@@ -202,9 +205,9 @@ public class State
             return true;
         }
         return false;
-    }
+    }*/
 
-    public bool WithinDistance()
+    /*public bool WithinDistance()
     {
         oppTarget = CalcOppClosest();
         Vector3 direction = oppTarget.position - npc.transform.position;
@@ -214,9 +217,9 @@ public class State
             return true;
         }
         return false;
-    }
+    }*/
 
-    public bool WithinCustomDistance(float distance)
+    /*public bool WithinCustomDistance(float distance)
     {
         oppTarget = CalcOppClosest();
         if(oppTarget != null)
@@ -230,9 +233,9 @@ public class State
             }
         }
         return false;
-    }
+    }*/
 
-    public bool CanAttackPlayer()
+    /*public bool CanAttackPlayer()
     {
         if(oppTarget != null)
         {
@@ -244,7 +247,7 @@ public class State
             }
         }
         return false;
-    }
+    }*/
 }
 
 public class Idle : State
@@ -365,7 +368,7 @@ public class MoveBlock : State
         agent.SetDestination(target);
 
         //if (WithinShootDistance())
-        if(WithinCustomDistance(3f))
+        if(CanScanOpponent())
         {
             Debug.Log("IF KNOCK");
             nextState = new KnockAttack(npc, opposingTeam, anim, agent);
@@ -374,7 +377,7 @@ public class MoveBlock : State
 
         if (agent.hasPath)
         {
-            if (!WithinDistance() && !enteredBase)
+            if (!CanScanOpponent() && !enteredBase)
             {
                 //nextState = new Idle(npc, player, anim, agent);
                 nextState = new BackToBase(npc, opposingTeam, anim, agent);
@@ -399,8 +402,8 @@ public class BackToBase : State
 
     public override void Enter()
     {
-        List<GameObject> spawnPosts = MapManager.Instance.GetEnemyPosts();
-        agent.SetDestination(spawnPosts[Random.Range(0, spawnPosts.Count)].transform.position);
+        List<LaneSpawn> spawnPosts = MapManager.Instance.GetEnemyPosts();
+        agent.SetDestination(spawnPosts[Random.Range(0, spawnPosts.Count)].spawnTrans.position);
         base.Enter();
     }
 
@@ -460,7 +463,7 @@ public class KnockAttack : State
 
         //float angleLeft = Vector3.Angle(npc.transform.forward, player.position - npc.transform.position);
         //if (angle < 10 && Time.time - lastShot > shootCD)
-        if(WithinCustomDistance(3) && Time.time - lastShot > shootCD)
+        if(CanScanOpponent() && Time.time - lastShot > shootCD)
         {
             lastShot = Time.time;
             Vector3 pushDir = npc.transform.forward * 1000;
@@ -468,7 +471,7 @@ public class KnockAttack : State
             Debug.Log("KNOCK PUSH");
         }
 
-        if (!WithinCustomDistance(3.1f))
+        if (!CanScanOpponent())
         {
             nextState = new MoveBlock(npc,opposingTeam,anim,agent,chaseLimit);
             stage = EVENT.EXIT;

@@ -19,22 +19,23 @@ public class IdleFighter : State
     {
         Debug.Log("IdleFighter");
 
-        //Kalau ada di radar vision, dan nggak hidden, kejar
-        //Kalau ada di radar scan, kejar
-        if (CanSeePlayer() && !GetOppHideStats())
+        //If opponent is within vision range and not hidden, chase
+        //If opponent is within scan range, shoot.
+        if (CanSeeOpponent() && !GetOppHideStats())
         {
             nextState = new Pursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
-        else if (CanScanPlayer())
+        else if (CanScanOpponent())
         {
-            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            nextState = new FighterShoot(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
 
         if (Random.Range(0, 100) < 10)
         {
-            nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+            //nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+            nextState = new MoveToBenteng(npc,opposingTeam,anim,agent);
             stage = EVENT.EXIT;
         }
     }
@@ -46,7 +47,74 @@ public class IdleFighter : State
     }
 }
 
-public class MoveToNeutral : State
+public class MoveToBenteng : State
+{
+    GameObject targetBenteng;
+
+    public MoveToBenteng(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
+    {
+        name = STATE.MoveToBenteng;
+        agent.speed = 3;
+        agent.isStopped = false;
+
+        if (npc.gameObject.tag == "Enemy")
+        {
+            targetBenteng = MapManager.Instance.GetBentengPlayer();
+        }
+        else
+        {
+            targetBenteng = MapManager.Instance.GetBentengEnemy();
+        }
+
+    }
+
+    public override void Enter()
+    {
+        //anim.SetTrigger("isIdle");
+        //npc.transform.rotation = Quaternion.Euler(0, 180, 0);
+        agent.SetDestination(targetBenteng.transform.position);
+        base.Enter();
+    }
+
+    public override void Update()
+    {
+        //Debug.Log("Move To Benteng" + targetBenteng.transform.position);
+        agent.SetDestination(targetBenteng.transform.position);
+
+        //Kalau ada di radar vision, dan nggak hidden, kejar
+        //Kalau ada di radar scan, kejar
+        if (CanSeeOpponent() && !GetOppHideStats())
+        {
+            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            stage = EVENT.EXIT;
+        }
+        else if (CanScanOpponent())
+        {
+            nextState = new Pursue(npc, opposingTeam, anim, agent);
+            stage = EVENT.EXIT;
+        }
+
+        if (agent.hasPath)
+        {
+            //Debug.Log("Has Path");
+            if (agent.remainingDistance < scanDist)
+            {
+                //Debug.Log("Swap Shoot");
+                nextState = new FighterShoot(npc, opposingTeam, anim, agent);
+                stage = EVENT.EXIT;
+            }
+        }
+    }
+
+    public override void Exit()
+    {
+        //anim.ResetTrigger("isIdle");
+        base.Exit();
+    }
+}
+
+
+/*public class MoveToNeutral : State
 {
     public MoveToNeutral(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
     {
@@ -68,20 +136,20 @@ public class MoveToNeutral : State
     {
         //Debug.Log("Move To Benteng" + targetBenteng.transform.position);
         Debug.Log("Move to Neutral");
-        /*if (WithinCustomDistance(20))
-        {
-            nextState = new Pursue(npc, opposingTeam, anim, agent);
-            stage = EVENT.EXIT;
-        }*/
+        //if (WithinCustomDistance(20))
+        //{
+          //  nextState = new Pursue(npc, opposingTeam, anim, agent);
+           // stage = EVENT.EXIT;
+        //}
 
         //Kalau ada di radar vision, dan nggak hidden, kejar
         //Kalau ada di radar scan, kejar
-        if (CanSeePlayer() && !GetOppHideStats())
+        if (CanSeeOpponent() && !GetOppHideStats())
         {
             nextState = new Pursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
-        else if (CanScanPlayer())
+        else if (CanScanOpponent())
         {
             nextState = new Pursue(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
@@ -106,48 +174,7 @@ public class MoveToNeutral : State
         //anim.ResetTrigger("isIdle");
         base.Exit();
     }
-}
-
-public class WanderNeutral : State
-{
-    float wanderRadius = 10f;
-    float wanderDistance = 20f;
-    float wanderJitter = 1f;
-    Vector3 wanderTarget = Vector3.zero;
-
-    public WanderNeutral(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
-    {
-        name = STATE.WanderNeutral;
-        agent.speed = 3;
-        agent.isStopped = false;
-        //targetBenteng = MapManager.Instance.GetBentengPlayer();
-    }
-
-    public override void Enter()
-    {
-        //
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        wanderTarget += new Vector3(Random.Range(-1f, 1f) * wanderJitter, 0, Random.Range(-1f, 1f) * wanderJitter);
-        wanderTarget.Normalize();
-        wanderTarget *= wanderRadius;
-
-        Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
-        Vector3 targetWorld = agent.transform.InverseTransformVector(targetLocal);
-        agent.SetDestination(targetWorld);
-        Debug.Log("Wander Neutral");
-    }
-
-    public override void Exit()
-    {
-        //anim.ResetTrigger("isIdle");
-        base.Exit();
-    }
-}
-
+}*/
 
 public class Pursue : State
 {
@@ -174,15 +201,16 @@ public class Pursue : State
 
         if (agent.hasPath)
         {
-            if (CanAttackPlayer())
+            if (CanScanOpponent())
             {
                 nextState = new FighterShoot(npc, opposingTeam, anim, agent);
                 stage = EVENT.EXIT;
 
             }
-            else if (!CanSeePlayer()|| GetOppHideStats())
+            else if (!CanSeeOpponent()|| GetOppHideStats())
             {
-                nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+                nextState = new MoveToBenteng(npc, opposingTeam, anim, agent);
+                //nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
                 //nextState = new IdleFighter(npc, opposingTeam, anim, agent);
                 //nextState = new Patrol(npc, player, anim, agent);
                 stage = EVENT.EXIT;
@@ -219,11 +247,11 @@ public class FighterShoot : State
             Vector3 direction = oppTarget.position - npc.transform.position;
             float angle = Vector3.Angle(direction, npc.transform.forward);
             direction.y = 0;
+
             npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation, Quaternion.LookRotation(direction), 60f * Time.deltaTime);
-
-
+            //Debug.Log("ANGLE " + angle);
             //float angleLeft = Vector3.Angle(npc.transform.forward, player.position - npc.transform.position);
-            if (angle < 10 && Time.time - lastShot > shootCD)
+            if (angle <= 15 && Time.time - lastShot > shootCD)
             {
                 lastShot = Time.time;
                 npc.GetComponent<CharacterBase>().Shoot();
@@ -235,17 +263,21 @@ public class FighterShoot : State
                 stage = EVENT.EXIT;
             }*/
 
-            if (!CanSeePlayerDistance(weapRange) || GetOppHideStats())
+            if (!CanScanOpponent() || GetOppHideStats())
             {
                 //nextState = new Idle(npc, player, anim, agent);
                 //nextState = new IdleFighter(npc, player, anim, agent);
-                nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+                //nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+
+                nextState = new MoveToBenteng(npc, opposingTeam, anim, agent);
                 stage = EVENT.EXIT;
             }
         }
         else
         {
-            nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+            //nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
+
+            nextState = new MoveToBenteng(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
         }
        

@@ -70,7 +70,17 @@ public class Player : CharacterBase
             {
                 AudioManagerY.Instance.PlayAudio(audioKlik, 1);
                 int rand = Random.Range(0, MapManager.Instance.GetPlayerPosts().Count);
-                GameObject sumAlly = Instantiate(summonableAllies[summonIndex].allyPrefab, MapManager.Instance.GetPlayerPosts()[rand].transform, true);
+
+                //Set position
+                LaneSpawn selectedLane = MapManager.Instance.GetPlayerPosts()[rand];
+                GameObject sumAlly = Instantiate(summonableAllies[summonIndex].allyPrefab, selectedLane.spawnTrans, true);
+
+                //Assign Lane
+                int laneMask = sumAlly.GetComponent<NavMeshAgent>().areaMask;
+                laneMask = 1 << NavMesh.GetAreaFromName(selectedLane.areaName);
+
+                sumAlly.GetComponent<NavMeshAgent>().areaMask = laneMask;
+
                 sumAlly.transform.parent = null;
                 alreadyUsed[summonIndex] = true;
                 FindObjectOfType<WeaponBar>().EraseSlotImg(summonIndex);

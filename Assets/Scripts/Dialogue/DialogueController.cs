@@ -20,6 +20,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Text nameText;
     [SerializeField] private Transform choicePanel;
     [SerializeField] private GameObject choiceBoxPrefab;
+    [SerializeField] private Image dialogBG;
     //[SerializeField] private GameObject skipButton;
 
     //[SerializeField] public List<DialogueScriptable> dialogueList = new List<DialogueScriptable>();
@@ -52,6 +53,10 @@ public class DialogueController : MonoBehaviour
         KeybindSaveSystem.SetCurrentKeybind(KeybindSaveSystem.LoadKeybind());*/
     }
 
+    public void SetBG(Sprite img)
+    {
+        dialogBG.sprite = img;
+    }
 
     private void Update()
     {
@@ -173,7 +178,7 @@ public class DialogueController : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSecondsRealtime(0.03f);
         }
 
         doneWriting = true;
@@ -259,20 +264,6 @@ public class DialogueController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         talking = false;
         Debug.Log("Ending dialogue");
-
-        //Dummy doang. Nanti hapus setelah ada kodingan player
-        /*if (FindObjectOfType<PlayerMovement>())
-        {
-            Debug.Log("Player Movement True");
-            FindObjectOfType<PlayerMovement>().SetCanMove(true);
-            FindObjectOfType<PlayerMovement>().ResetSpeed();
-        }
-
-        if (FindObjectOfType<PauseMenu>())
-        {
-            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
-            FindObjectOfType<PauseMenu>().SetCanPause(true);
-        }*/
     }
 
     public void ApplyChoice(int route)
@@ -281,7 +272,16 @@ public class DialogueController : MonoBehaviour
         dialogueIndex = -1;
         EraseChoice();
         selectingChoice = false;
-        NextDialogue();
+        Debug.Log("Route : " + route);
+        if(route < 0)
+        {
+            Debug.Log("No more dialogue to write");
+            StartCoroutine(EndDialogue());
+        }
+        else
+        {
+            NextDialogue();
+        }
     }
 
     //GETTER & SETTER

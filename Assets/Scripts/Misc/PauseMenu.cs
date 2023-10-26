@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] string mainMenuScene = "MainMenuFixY";
+    [SerializeField] string mainMenuScene = "MainMenuY2";
     [SerializeField] GameObject pauseMenu;
 
     private void Awake()

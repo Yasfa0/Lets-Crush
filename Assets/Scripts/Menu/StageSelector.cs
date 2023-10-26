@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class StageSelector : MonoBehaviour
 {
     private int currentIndex = 0;
     [SerializeField] private AudioClip audioKlik;
     [SerializeField] private List<StageData> stageList = new List<StageData>();
+    [SerializeField] private List<int> dialogueIDs = new List<int>();
+    private bool dialogDone = false;
     [SerializeField] private Image previewImg;
     [SerializeField] private Text descContentTxt;
     [SerializeField] private Text bossContentTxt;
@@ -45,6 +48,10 @@ public class StageSelector : MonoBehaviour
         {
             FindObjectOfType<MainMenuManager>().SetSelectedStage(stageList[currentIndex]);
             FindObjectOfType<MenuCameraController>().GantiPosisiKamera(camPos);
+            MainMenuManager.Instance.StartCallDialogue(dialogueIDs[currentIndex]);
+            dialogDone = true;
+            EventSystem.current.SetSelectedGameObject(null);
+            
         }
     }
 

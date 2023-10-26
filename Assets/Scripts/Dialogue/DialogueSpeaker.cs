@@ -27,6 +27,7 @@ public class DialogueSpeaker : MonoBehaviour
 
         foreach (IDialogueEvent dialogueEvent in GetComponents<IDialogueEvent>())
         {
+            Debug.Log("Event found");
             if (dialogueEvent.GetEventId() == eventIndex)
             {
                 dialogueEvent.StartEvent();

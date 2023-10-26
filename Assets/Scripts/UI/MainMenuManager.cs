@@ -9,10 +9,25 @@ public class MainMenuManager : MonoBehaviour
     //[SerializeField] private GameObject WIPBox;
     //bool WIPShown = false;
 
+    //Untuk Singleton
+    public static MainMenuManager Instance;
+
+    [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private List<CallDialogueSpeaker> dialogueCalls = new List<CallDialogueSpeaker>();
+
     private StageData selectedStage;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         if (!GameSetting.CheckSetting())
         {
             Debug.Log("Create Temp Setting");
@@ -24,8 +39,20 @@ public class MainMenuManager : MonoBehaviour
         Screen.fullScreen = GameSetting.LoadSetting().isFullscreen;
     }
 
+    public void StartCallDialogue(int callIndex)
+    {
+        dialogueCanvas.SetActive(true);
+        dialogueCalls[callIndex].StartDialogue();
+    }
+
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            StartCallDialogue(0);
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             SaveData tempSave = SaveSystem.LoadSave("save");

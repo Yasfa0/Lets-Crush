@@ -34,7 +34,7 @@ public class RewardBox : MonoBehaviour
         }
         weap.SaveAmmoData();
         FindObjectOfType<ObjectiveManager>().TogglePause(false);
-        SceneManager.LoadScene("MainMenuFixY");
+        SceneManager.LoadScene("MainMenuY2");
     }
 
 }

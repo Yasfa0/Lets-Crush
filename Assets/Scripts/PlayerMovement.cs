@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!pauseControl)
+        if (!pauseControl && !ObjectiveManager.Instance.GetPause())
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             verticalInput = Input.GetAxisRaw("Vertical");

@@ -50,65 +50,6 @@ public class IdleAtk : State
     }
 }
 
-public class MoveToBenteng : State
-{
-    GameObject targetBenteng;
-
-    public MoveToBenteng(GameObject _npc, List<Transform> _oppTeam, Animator _anim, NavMeshAgent _agent) : base(_npc, _oppTeam, _anim, _agent)
-    {
-        name = STATE.MoveToBenteng;
-        agent.speed = 3;
-        agent.isStopped = false;
-        targetBenteng = MapManager.Instance.GetBentengPlayer();
-    }
-
-    public override void Enter()
-    {
-        //anim.SetTrigger("isIdle");
-        //npc.transform.rotation = Quaternion.Euler(0, 180, 0);
-        agent.SetDestination(targetBenteng.transform.position);
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        //Debug.Log("Move To Benteng" + targetBenteng.transform.position);
-
-        if (agent.hasPath)
-        {
-            //Debug.Log("Has Path");
-            if (agent.remainingDistance < weapRange)
-            {
-                //Debug.Log("Swap Shoot");
-                nextState = new ShootAtk(npc, opposingTeam, anim, agent);
-                stage = EVENT.EXIT;
-            }
-        }
-    }
-
-    public bool PlayerEnterZone()
-    {
-        List<GameObject> charaList = MapManager.Instance.GetEnemyBaseChecker().GetDetectedCharaList();
-        foreach (GameObject chara in charaList)
-        {
-            //Debug.Log(chara.name);
-            //Debug.Log(player.gameObject.name);
-            if (chara == oppTarget.gameObject)
-            {
-                return true;
-            }
-        }
-        //Debug.Log("Player undetected");
-        return false;
-    }
-
-    public override void Exit()
-    {
-        //anim.ResetTrigger("isIdle");
-        base.Exit();
-    }
-}
-
 public class ShootAtk : State
 {
     float lastShot;

@@ -51,6 +51,10 @@ public class Ally : CharacterBase
             //hpBarInstance.DestroyHealthBar();
             isKnocked = true;
             currentState = new Knockdown(gameObject, ConvertToTransform(opposingTeam), anim, agent);
+            if(gameObject.tag == "Friendly")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

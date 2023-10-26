@@ -11,6 +11,6 @@ public class LoseBox : MonoBehaviour
         Weapon weap = GameObject.FindGameObjectWithTag("Player").GetComponent<Weapon>();
         weap.SaveAmmoData();
         FindObjectOfType<ObjectiveManager>().TogglePause(false);
-        SceneManager.LoadScene("MainMenuFixY");
+        SceneManager.LoadScene("MainMenuY2");
     }
 }

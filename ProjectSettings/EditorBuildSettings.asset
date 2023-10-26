@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenuY2.unity
+    guid: 40d4cb8701f48774293a804107976842
+  - enabled: 1
     path: Assets/Scenes/MainMenuFixY.unity
     guid: 03195fc57aeefaa4daeabf98fc0f6f2f
   - enabled: 1
@@ -35,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 3Y.unity
     guid: f1d210f8cdade914cbca7718f5bdf058
+  - enabled: 1
+    path: Assets/Scenes/Stage/Penyerangan.unity
+    guid: 658e62e2b9f0ee948976eb5278260255
   m_configObjects: {}

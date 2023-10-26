@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StageOneObjective : ObjectiveManager
 {
     [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private LaneSpawn bossLane;
     private List<PhaseSummon> currentPhaseSummon = new List<PhaseSummon>();
     [SerializeField] private List<PhaseSummon> phaseOneSummon = new List<PhaseSummon>();
     [SerializeField] private List<PhaseSummon> phaseTwoSummon = new List<PhaseSummon>();
@@ -26,12 +28,25 @@ public class StageOneObjective : ObjectiveManager
                 currentPhaseSummon[i].nextSummon = Time.time + currentPhaseSummon[i].cooldown;
 
                 Debug.Log("Summon");
-                List<GameObject> spawnPointList = MapManager.Instance.GetEnemyPosts();
+                List<LaneSpawn> spawnPointList = MapManager.Instance.GetEnemyPosts();
                 for (int j = 0; j < currentPhaseSummon[i].spawnAmount; j++)
                 {
                     int rand = Random.Range(0, spawnPointList.Count);
                     GameObject tempSummon = Instantiate(currentPhaseSummon[i].summonPrefab);
-                    tempSummon.transform.position = spawnPointList[rand].transform.position;
+
+                    LaneSpawn selectedSpawn = spawnPointList[rand];
+
+                    //Set Position
+                    tempSummon.transform.position = selectedSpawn.spawnTrans.position;
+                    tempSummon.transform.position = new Vector3(tempSummon.transform.position.x, 0.85f, tempSummon.transform.position.z);
+
+                    //Set Lane
+                    int laneMask = tempSummon.GetComponent<NavMeshAgent>().areaMask;
+                    //laneMask += 1 << NavMesh.GetAreaFromName("Everything");
+                    //laneMask = 1;
+                    laneMask = 1 << NavMesh.GetAreaFromName(selectedSpawn.areaName);
+                    tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
+
                 }
                 currentPhaseSummon[i].maxWave -= 1;
                 MapManager.Instance.FillTeams();
@@ -68,10 +83,16 @@ public class StageOneObjective : ObjectiveManager
         if(currentPhase == 2)
         {
             Debug.Log("Summon Boss");
-            List<GameObject> spawnPointList = MapManager.Instance.GetEnemyPosts();
-            int rand = Random.Range(0, spawnPointList.Count);
+            
             GameObject tempSummon = Instantiate(bossPrefab);
-            tempSummon.transform.position = spawnPointList[rand].transform.position;
+
+            tempSummon.transform.position = bossLane.spawnTrans.position;
+
+            int laneMask = tempSummon.GetComponent<NavMeshAgent>().areaMask;
+            laneMask = 1 << NavMesh.GetAreaFromName(bossLane.areaName);
+
+            tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
+
             MapManager.Instance.FillTeams();
             Camera.main.gameObject.GetComponent<CameraFollowTarget>().FocusCam(tempSummon.transform.position, 5f);
         }
