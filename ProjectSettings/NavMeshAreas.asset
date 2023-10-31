@@ -15,9 +15,9 @@ NavMeshProjectSettings:
     cost: 1
   - name: LaneTwo
     cost: 1
-  - name: 
-    cost: 1
   - name: LaneThree
+    cost: 1
+  - name: 
     cost: 1
   - name: Obstacle
     cost: 1

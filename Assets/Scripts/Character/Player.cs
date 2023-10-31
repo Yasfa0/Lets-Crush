@@ -78,6 +78,7 @@ public class Player : CharacterBase
                 //Assign Lane
                 int laneMask = sumAlly.GetComponent<NavMeshAgent>().areaMask;
                 laneMask = 1 << NavMesh.GetAreaFromName(selectedLane.areaName);
+                laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
 
                 sumAlly.GetComponent<NavMeshAgent>().areaMask = laneMask;
 

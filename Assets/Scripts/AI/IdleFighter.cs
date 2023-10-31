@@ -30,10 +30,7 @@ public class IdleFighter : State
         {
             nextState = new FighterShoot(npc, opposingTeam, anim, agent);
             stage = EVENT.EXIT;
-        }
-
-        if (Random.Range(0, 100) < 10)
-        {
+        }else{
             //nextState = new MoveToNeutral(npc, opposingTeam, anim, agent);
             nextState = new MoveToBenteng(npc,opposingTeam,anim,agent);
             stage = EVENT.EXIT;
