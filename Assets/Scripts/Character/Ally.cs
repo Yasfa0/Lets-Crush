@@ -40,7 +40,8 @@ public class Ally : CharacterBase
     {
         base.Update();
         currentState = currentState.Process();
-        Debug.Log(gameObject.name + " " + currentState);
+        Debug.Log("HALOOO");
+        Debug.Log(gameObject.name + " current state: " + currentState);
         Knockdown();
     }
 

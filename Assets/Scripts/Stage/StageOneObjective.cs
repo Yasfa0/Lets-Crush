@@ -45,6 +45,7 @@ public class StageOneObjective : ObjectiveManager
                     //laneMask += 1 << NavMesh.GetAreaFromName("Everything");
                     //laneMask = 1;
                     laneMask = 1 << NavMesh.GetAreaFromName(selectedSpawn.areaName);
+                    laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
                     tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
 
                 }
@@ -90,6 +91,7 @@ public class StageOneObjective : ObjectiveManager
 
             int laneMask = tempSummon.GetComponent<NavMeshAgent>().areaMask;
             laneMask = 1 << NavMesh.GetAreaFromName(bossLane.areaName);
+            laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
 
             tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
 

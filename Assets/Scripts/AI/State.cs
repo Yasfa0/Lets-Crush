@@ -21,9 +21,8 @@ public class State
 
     protected float visDist = 8f;
 
-    //It's currently set to 60 degrees 
-    //Need confirmation
-    protected float visAngle = 30f;
+    //Currently 90 degree. Karena 45 * 2.
+    protected float visAngle = 45f;
 
     protected float scanDist = 5;
 

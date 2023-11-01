@@ -21,19 +21,6 @@ public class StageThreeObjective : ObjectiveManager
 
     private void Update()
     {
-
-        //Dummy only
-        /*if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if (FindObjectOfType<CallDialogueSpeaker>())
-            {
-                //dialogueController.gameObject.SetActive(true);
-                WinDialogue();
-                //TogglePause(true);
-            }
-        }*/
-
-
         for (int i = 0; i < currentPhaseSummon.Count; i++)
         {
             if (Time.time >= currentPhaseSummon[i].nextSummon && currentPhaseSummon[i].maxWave > 0)
@@ -58,6 +45,7 @@ public class StageThreeObjective : ObjectiveManager
                     //laneMask += 1 << NavMesh.GetAreaFromName("Everything");
                     //laneMask = 1;
                     laneMask = 1 << NavMesh.GetAreaFromName(selectedSpawn.areaName);
+                    laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
                     tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
 
                 }
@@ -103,6 +91,7 @@ public class StageThreeObjective : ObjectiveManager
 
             int laneMask = tempSummon.GetComponent<NavMeshAgent>().areaMask;
             laneMask = 1 << NavMesh.GetAreaFromName(bossLane.areaName);
+            laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
 
             tempSummon.GetComponent<NavMeshAgent>().areaMask = laneMask;
 

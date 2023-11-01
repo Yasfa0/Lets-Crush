@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,6 +40,8 @@ public class Enemy : CharacterBase
     {
         base.Update();
         currentState = currentState.Process();
+        Debug.Log("HALOOO");
+        Debug.Log(gameObject.name + " current state: " + currentState);
         //Knockdown();
     }
 
@@ -51,6 +53,7 @@ public class Enemy : CharacterBase
             laneMask += 1 << NavMesh.GetAreaFromName("LaneOne");
             laneMask += 1 << NavMesh.GetAreaFromName("LaneTwo");
             laneMask += 1 << NavMesh.GetAreaFromName("LaneThree");
+            laneMask += 1 << NavMesh.GetAreaFromName("Walkable");
             //int laneMask = agent.areaMask;
             //laneMask = 1;
             //laneMask += 1 << NavMesh.GetAreaFromName("Everything");

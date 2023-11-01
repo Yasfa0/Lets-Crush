@@ -7,7 +7,9 @@ public class CameraFollowTarget : MonoBehaviour
     [SerializeField] private int followRot = 30;
     [SerializeField] private int focusRot = 0;
     [SerializeField] private GameObject target;
-    [SerializeField] private float[] camZLimit = new float[2]; 
+    [SerializeField] private bool isLimitX = false;
+    [SerializeField] private float[] camZLimit = new float[2];
+    [SerializeField] private float[] camXLimit = new float[2];
     float zOffset;
     float yOffset;
     float xOffset;
@@ -24,6 +26,12 @@ public class CameraFollowTarget : MonoBehaviour
         zOffset = target.transform.position.z - transform.position.z;
         yOffset = target.transform.position.y - transform.position.y;
         xOffset = target.transform.position.x - transform.position.x;
+
+        if (!isLimitX)
+        {
+            camXLimit[0] = -200;
+            camXLimit[1] = 200;
+        }
     }
 
     private void Update()
@@ -32,7 +40,7 @@ public class CameraFollowTarget : MonoBehaviour
         {
             //if(transform.position.z >= camZLimit[0] && transform.position.z <= camZLimit[1])
             //transform.position = Vector3.Slerp(transform.position, new Vector3(target.transform.position.x - xOffset, zOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
-            transform.position = Vector3.Slerp(transform.position, new Vector3(target.transform.position.x - xOffset, target.transform.position.y - yOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
+            transform.position = Vector3.Slerp(transform.position, new Vector3(Mathf.Clamp(target.transform.position.x - xOffset, camXLimit[0], camXLimit[1]), target.transform.position.y - yOffset, Mathf.Clamp(target.transform.position.z - zOffset, camZLimit[0], camZLimit[1])), 1);
             transform.eulerAngles = new Vector3(followRot,0,0);
         }
 
