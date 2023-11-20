@@ -1789,7 +1789,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71fb632c5defee449a8211416fe73b3c, type: 2}
   - {fileID: 11400000, guid: a16050c47ffb6a54c9327ca30b86b1f2, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: 74d823cf0b0b07c47835451f1bade43f, type: 3}
+  bgImg: {fileID: 21300000, guid: 88dae11dcd7e7bc4dad03b313b571c2d, type: 3}
 --- !u!114 &220387568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7029,6 +7029,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2624127408356199357, guid: e183e768697019f4497db30119f20eca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624127408356199357, guid: e183e768697019f4497db30119f20eca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5580861112064460641, guid: e183e768697019f4497db30119f20eca, type: 3}
       propertyPath: m_Name
       value: Call Dialogue Canvas
@@ -7162,7 +7170,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7848746f7e673be489330c2458496721, type: 2}
   - {fileID: 11400000, guid: 85e8f42b5d6ba4a428a6f56ac769ff4e, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: 74d823cf0b0b07c47835451f1bade43f, type: 3}
+  bgImg: {fileID: 21300000, guid: 88dae11dcd7e7bc4dad03b313b571c2d, type: 3}
 --- !u!114 &932003677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7388,7 +7396,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0d220641f96e814ba896beac368c931, type: 2}
   - {fileID: 11400000, guid: ad3eec453e9fcc648939db9dbd67ba35, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: 04eb14f1b9d87904087ae00187edaea2, type: 3}
+  bgImg: {fileID: 21300000, guid: eae94941e53bc7849bc761753096d049, type: 3}
 --- !u!114 &967865522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8464,7 +8472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 2e3525ff1f4714c49b12e80547bbd09e, type: 3}
+  - {fileID: 8300000, guid: 9bddd234ef458674fa9b7062fabf6a41, type: 3}
 --- !u!114 &1164790423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8981,7 +8989,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cba1a456f534c634988c57f236704dce, type: 2}
   - {fileID: 11400000, guid: 48f744437c82dab488b65fa45b44ac9c, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: fb2ae705c15fe4646985a4bce027e16a, type: 3}
+  bgImg: {fileID: 21300000, guid: 9dc2b01db712a4743ad2ed1e2635e91e, type: 3}
 --- !u!114 &1288129760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13489,7 +13497,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f69a3273814431f4fb753601f3860a4e, type: 2}
   - {fileID: 11400000, guid: 89555b79f0c106e4f9ae793add6e7e43, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: 74d823cf0b0b07c47835451f1bade43f, type: 3}
+  bgImg: {fileID: 21300000, guid: 18fb43b386482a2428cc6b2e8ce5de9b, type: 3}
 --- !u!114 &1880080766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15373,7 +15381,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2af0899c2dc7fc545baf96c27963452e, type: 2}
   - {fileID: 11400000, guid: 7e50f96f67522db4291d3bccf779dc65, type: 2}
   canSetup: 0
-  bgImg: {fileID: 21300000, guid: fb2ae705c15fe4646985a4bce027e16a, type: 3}
+  bgImg: {fileID: 21300000, guid: 9dc2b01db712a4743ad2ed1e2635e91e, type: 3}
 --- !u!1 &2084124477
 GameObject:
   m_ObjectHideFlags: 0

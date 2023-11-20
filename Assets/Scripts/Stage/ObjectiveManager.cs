@@ -33,6 +33,8 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] protected DialogueController dialogueController;
     protected List<GameObject> objectiveBoxList = new List<GameObject>();
 
+    [SerializeField] protected AudioClip winAudio;
+
     protected bool gamePaused = false;
 
     protected void Awake()
@@ -202,6 +204,8 @@ public class ObjectiveManager : MonoBehaviour
                 {
                     WinDialogue();
                 }
+                AudioManagerY.Instance.StopAudioChannel(0);
+                AudioManagerY.Instance.PlayNewAudio(winAudio, 0, true);
                 TogglePause(true);
             }
             else

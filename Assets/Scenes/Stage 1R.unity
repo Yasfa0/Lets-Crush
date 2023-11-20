@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44339386, g: 0.49266917, b: 0.5722972, a: 1}
+  m_IndirectSpecularColor: {r: 0.44339386, g: 0.49266982, b: 0.5722978, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20803,9 +20803,13 @@ MonoBehaviour:
   followRot: 30
   focusRot: 0
   target: {fileID: 277338209}
+  isLimitX: 0
   camZLimit:
   - -35
   - 5
+  camXLimit:
+  - 0
+  - 0
   bossOffset: {x: 0, y: 0.5, z: -3}
 --- !u!1001 &684270339
 PrefabInstance:
@@ -61065,15 +61069,15 @@ Transform:
   - {fileID: 1925089365}
   - {fileID: 663730430}
   - {fileID: 736244702}
+  - {fileID: 599996585}
   - {fileID: 1794022714}
   - {fileID: 1977880585}
   - {fileID: 1339582244}
   - {fileID: 1065338440}
-  - {fileID: 300011164}
-  - {fileID: 599996585}
-  - {fileID: 366784875}
   - {fileID: 962787915}
+  - {fileID: 300011164}
   - {fileID: 1002514986}
+  - {fileID: 366784875}
   m_Father: {fileID: 1045202749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

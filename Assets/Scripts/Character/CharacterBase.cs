@@ -101,7 +101,12 @@ public class CharacterBase : MonoBehaviour
     {
         currentHP = maxHP;
         hpBarInstance = Instantiate(hpBarPrefab, transform.position + hpbarOffset, Quaternion.Euler(hpBarPrefab.GetComponent<RectTransform>().localRotation.eulerAngles.x, 0, 0), null).GetComponent<FloatingHealthBar>();
-        hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP);
+        bool isFriendly = true;
+        if (gameObject.tag == "Enemy")
+        {
+            isFriendly = false;
+        }
+        hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP,isFriendly);
     }
 
     public void Push(GameObject target)
@@ -151,6 +156,15 @@ public class CharacterBase : MonoBehaviour
         currentHP = currentHP - dmgTaken;
         hpBarInstance.SetCurrentHP(currentHP);
         Knockdown();
+    }
+
+    public virtual void HealDamage(float dmgHeal)
+    {
+        if(currentHP <= maxHP)
+        {
+            currentHP = currentHP + dmgHeal;
+            hpBarInstance.SetCurrentHP(currentHP);
+        }
     }
 
     public virtual void Knockdown()

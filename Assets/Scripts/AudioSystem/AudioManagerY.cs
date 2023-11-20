@@ -71,6 +71,14 @@ public class AudioManagerY : MonoBehaviour
         audioSource.Play();
     }
 
+    public void StopAudioChannel(int audioType)
+    {
+        foreach (AudioSource source in audioPlayers[audioType].GetComponents<AudioSource>())
+        {
+            Destroy(source);
+        }
+    }
+
     public List<GameObject> GetAudioPlayers()
     {
         if (audioPlayers != null)

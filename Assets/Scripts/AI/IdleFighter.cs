@@ -17,8 +17,8 @@ public class IdleFighter : State
 
     public override void Update()
     {
-        Debug.Log("IdleFighter");
 
+        Debug.Log(npc.gameObject.name + " STATE is Idle Fighter");
         //If opponent is within vision range and not hidden, chase
         //If opponent is within scan range, shoot.
         if (CanSeeOpponent() && !GetOppHideStats())
@@ -75,6 +75,7 @@ public class MoveToBenteng : State
 
     public override void Update()
     {
+        Debug.Log(npc.gameObject.name + " STATE is Move To Benteng");
         //Debug.Log("Move To Benteng" + targetBenteng.transform.position);
         agent.SetDestination(targetBenteng.transform.position);
 
@@ -190,7 +191,8 @@ public class Pursue : State
 
     public override void Update()
     {
-        if(oppTarget != null)
+        Debug.Log(npc.gameObject.name + " STATE is Pursue");
+        if (oppTarget != null)
         {
             agent.SetDestination(oppTarget.position);
             Debug.Log("Pursue");
@@ -239,8 +241,10 @@ public class FighterShoot : State
 
     public override void Update()
     {
-        if(oppTarget != null && oppTarget.GetComponent<CharacterBase>().GetCurrentHP() > 0)
+        Debug.Log(npc.gameObject.name + " STATE is Fighter Shoot");
+        if (oppTarget != null && oppTarget.GetComponent<CharacterBase>().GetCurrentHP() > 0)
         {
+            Debug.Log(npc.gameObject.name + " STATE is FS Execute");
             Vector3 direction = oppTarget.position - npc.transform.position;
             float angle = Vector3.Angle(direction, npc.transform.forward);
             direction.y = 0;

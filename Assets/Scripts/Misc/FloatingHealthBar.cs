@@ -8,6 +8,8 @@ public class FloatingHealthBar : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private List<Text> healthTexts = new List<Text>();
     [SerializeField] private GameObject lineDivider;
+    [SerializeField] private List<Sprite> healthBarSprites = new List<Sprite>();
+    [SerializeField] private Image healthFill;
     Slider healthBar;
     Slider ammoBar;
     float zOffset;
@@ -38,11 +40,19 @@ public class FloatingHealthBar : MonoBehaviour
             transform.position = Vector3.Slerp(transform.position, new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - zOffset), 1);
     }
 
-    public void SetupHealthBar(GameObject t, float maxHP, float currentHP)
+    public void SetupHealthBar(GameObject t, float maxHP, float currentHP,bool isFriendly)
     {
         target = t;
         healthBar.maxValue = maxHP;
         healthBar.value = currentHP;
+        int barIndex = 0;
+        if (!isFriendly)
+        {
+            barIndex = 1;
+        }
+
+        healthFill.sprite = healthBarSprites[barIndex];
+        
         UpdateHPText();
         CalculateOffset();
     }

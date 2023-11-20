@@ -13,8 +13,16 @@ public class PlayerMovement : MonoBehaviour
     Weapon playerWeapon;
     bool pauseControl = false;
 
+    bool isIdle = true;
+
+    bool idleSetup = false;
+    float lastIdle;
+    float tickDuration = 2f;
+    Player player;
+
     private void Awake()
     {
+        player = GetComponent<Player>();
         playerWeapon = GetComponent<Weapon>();
         charaController = GetComponent<CharacterController>();
     }
@@ -38,6 +46,22 @@ public class PlayerMovement : MonoBehaviour
             moveDir = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
             transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+
+            if (moveDir.magnitude == 0 && !playerWeapon.GetIsShoot())
+            {
+                Debug.Log("Player Idling");
+                if (Time.time - lastIdle >= tickDuration)
+                {
+                  player.HealDamage(50);
+                  Debug.Log("Idling Heal");
+                  lastIdle = Time.time; 
+                }
+            }
+            else
+            {
+                idleSetup = false;
+                Debug.Log("Player not Idling");
+            }
 
             if (moveDir.magnitude >= 0.1f)
             {
@@ -87,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-
     }
 
 }

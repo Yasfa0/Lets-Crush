@@ -32,13 +32,13 @@ public class StageThreeObjective : ObjectiveManager
                 for (int j = 0; j < currentPhaseSummon[i].spawnAmount; j++)
                 {
                     int rand = Random.Range(0, spawnPointList.Count);
-                    GameObject tempSummon = Instantiate(currentPhaseSummon[i].summonPrefab);
-
                     LaneSpawn selectedSpawn = spawnPointList[rand];
 
+                    GameObject tempSummon = Instantiate(currentPhaseSummon[i].summonPrefab, selectedSpawn.spawnTrans.position, Quaternion.identity, null);
+
                     //Set Position
-                    tempSummon.transform.position = selectedSpawn.spawnTrans.position;
-                    tempSummon.transform.position = new Vector3(tempSummon.transform.position.x, 0.85f, tempSummon.transform.position.z);
+                    //tempSummon.transform.position = selectedSpawn.spawnTrans.position;
+                    //tempSummon.transform.position = new Vector3(tempSummon.transform.position.x, 0.85f, tempSummon.transform.position.z);
 
                     //Set Lane
                     int laneMask = tempSummon.GetComponent<NavMeshAgent>().areaMask;

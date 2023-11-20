@@ -13,6 +13,7 @@ public class Ally : CharacterBase
     protected State currentState;
     //protected GameObject player;
     protected List<GameObject> opposingTeam = new List<GameObject>();
+    protected int summonIndex = -1;
 
     private void Awake()
     {
@@ -49,11 +50,11 @@ public class Ally : CharacterBase
     {
         if (currentHP <= 0)
         {
-            //hpBarInstance.DestroyHealthBar();
             isKnocked = true;
             currentState = new Knockdown(gameObject, ConvertToTransform(opposingTeam), anim, agent);
             if(gameObject.tag == "Friendly")
             {
+                hpBarInstance.DestroyHealthBar();
                 Destroy(gameObject);
             }
         }
@@ -63,6 +64,16 @@ public class Ally : CharacterBase
     {
 
         currentState = new Sticky(gameObject, ConvertToTransform(opposingTeam), anim, agent, duration, idleState);
+    }
+
+    public void SetSummonIndex(int summonIndex)
+    {
+        this.summonIndex = summonIndex;
+    }
+
+    public int GetSummonIndex()
+    {
+        return summonIndex;
     }
 
 }
