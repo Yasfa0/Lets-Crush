@@ -14,11 +14,11 @@ public class Benteng : CharacterBase
 
     private void Awake()
     {
-        hpbarOffset = new Vector3(0, 4f, 3.5f);
+        //hpbarOffset = new Vector3(0, 4f, 3.5f);
         hidden = false;
         currentHP = maxHP;
         hpBarInstance = Instantiate(hpBarPrefab, transform.position + hpbarOffset, Quaternion.Euler(70,0,0), null).GetComponent<FloatingHealthBar>();
-        hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP);
+        hpBarInstance.SetupHealthBar(gameObject, maxHP, currentHP,isFriendly);
     }
 
     public override void TakeDamage(float dmgTaken)

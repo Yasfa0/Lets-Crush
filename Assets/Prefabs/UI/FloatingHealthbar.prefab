@@ -135,14 +135,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4198113, g: 1, b: 0.43517786, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 604068668, guid: 6730a88736aee7a4bac7555253a102b0, type: 3}
+  m_Sprite: {fileID: -414599051, guid: 3e083891adb0b47408b0eb93417917f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2108746016752543177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +439,10 @@ MonoBehaviour:
   - {fileID: 2774000257506210988}
   - {fileID: 2405264939500520487}
   lineDivider: {fileID: 8758636857575778179}
+  healthBarSprites:
+  - {fileID: -414599051, guid: 3e083891adb0b47408b0eb93417917f0, type: 3}
+  - {fileID: 2083687356, guid: 3e083891adb0b47408b0eb93417917f0, type: 3}
+  healthFill: {fileID: 2108746015275353483}
 --- !u!1 &2108746016757859464
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1060032909, guid: 6730a88736aee7a4bac7555253a102b0, type: 3}
+  m_Sprite: {fileID: 2083687356, guid: 3e083891adb0b47408b0eb93417917f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

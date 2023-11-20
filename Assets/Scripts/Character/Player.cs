@@ -9,8 +9,11 @@ public class Player : CharacterBase
     [SerializeField] private GameObject losePopUp;
     [SerializeField] private GameObject mainUI;
     [SerializeField] private AudioClip audioKlik;
+    [SerializeField] private AudioClip loseAudio;
     List<SummonData> summonableAllies = new List<SummonData>();
     List<bool> alreadyUsed = new List<bool>();
+    List<float> cooldownList = new List<float>();
+    float cdDuration = 20.5f;
     [SerializeField] private List<SummonData> dummySummons = new List<SummonData>();
 
     private void Awake()
@@ -27,6 +30,7 @@ public class Player : CharacterBase
         foreach (SummonData ally in summonableAllies)
         {
             alreadyUsed.Add(false);
+            cooldownList.Add(cdDuration);
         }
 
         for (int i = 0; i < summonableAllies.Count; i++)
@@ -42,6 +46,25 @@ public class Player : CharacterBase
         base.Update();
         Knockdown();
         SummonAlly();
+        CountdownTimer();
+    }
+
+    protected void CountdownTimer()
+    {
+        for (int i = 0; i < cooldownList.Count; i++)
+        {
+            if (cooldownList[i] > 0 && alreadyUsed[i])
+            {
+                cooldownList[i] -= Time.deltaTime;
+                FindObjectOfType<WeaponBar>().SetCDText(i, Mathf.FloorToInt(cooldownList[i]%60).ToString());
+
+            }else if (cooldownList[i] <= 0 && alreadyUsed[i])
+            {
+                alreadyUsed[i] = false;
+                FindObjectOfType<WeaponBar>().SetCDText(i, "");
+                FindObjectOfType<WeaponBar>().SetSlotImg(i, summonableAllies[i].icon);
+            }
+        }
     }
 
     public void SummonAlly()
@@ -73,7 +96,10 @@ public class Player : CharacterBase
 
                 //Set position
                 LaneSpawn selectedLane = MapManager.Instance.GetPlayerPosts()[rand];
-                GameObject sumAlly = Instantiate(summonableAllies[summonIndex].allyPrefab, selectedLane.spawnTrans, true);
+                GameObject sumAlly = Instantiate(summonableAllies[summonIndex].allyPrefab, selectedLane.spawnTrans.position,Quaternion.identity, null);
+                sumAlly.GetComponent<Ally>().SetSummonIndex(summonIndex);
+                cooldownList[summonIndex] = cdDuration;
+
 
                 //Assign Lane
                 int laneMask = sumAlly.GetComponent<NavMeshAgent>().areaMask;
@@ -96,6 +122,8 @@ public class Player : CharacterBase
         if(currentHP <= 0)
         {
             GameObject lose = Instantiate(losePopUp, mainUI.transform);
+            AudioManagerY.Instance.StopAudioChannel(0);
+            AudioManagerY.Instance.PlayNewAudio(loseAudio, 0, true);
             FindObjectOfType<ObjectiveManager>().TogglePause(true);
             gameObject.SetActive(false);
             //Destroy(gameObject);

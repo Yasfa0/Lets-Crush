@@ -89,4 +89,23 @@ public class Ammo : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetDamageCap()
+    {
+        return damageCap;
+    }
+
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
+
+    public void SetDamageCap(float damageCap)
+    {
+        this.damageCap = damageCap;
+    }
 }

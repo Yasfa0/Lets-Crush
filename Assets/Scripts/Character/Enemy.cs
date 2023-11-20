@@ -10,7 +10,6 @@ public class Enemy : CharacterBase
     protected Animator anim;
     protected NavMeshAgent agent;
     protected State currentState;
-    //protected GameObject player;
     protected List<GameObject> opposingTeam = new List<GameObject>();
     protected bool isDead = false;
 
@@ -40,7 +39,7 @@ public class Enemy : CharacterBase
     {
         base.Update();
         currentState = currentState.Process();
-        Debug.Log("HALOOO");
+        //Debug.Log("HALOOO");
         Debug.Log(gameObject.name + " current state: " + currentState);
         //Knockdown();
     }

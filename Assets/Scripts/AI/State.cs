@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class State
 {
-    public enum STATE { Idle, IdleAtk, IdleFighter, MoveToNeutral, Pursue, MoveBlock, BackToBase, MoveToBenteng, Shoot, 
-        FighterShoot,KnockAttack, Knockdown, KnockCapture, Imprisoned, Sticky }
+    public enum STATE { Idle, IdleAtk, IdleFighter, IdleSniper, ClimbClosest, MoveToNeutral, Pursue, MoveBlock, BackToBase, MoveToBenteng, Shoot, 
+        FighterShoot,KnockAttack, Knockdown, KnockCapture, Imprisoned, Sticky, SniperPatrol }
     public enum EVENT { ENTER, UPDATE, EXIT }
 
     public STATE name;
@@ -88,9 +88,12 @@ public class State
         //Check if opposing character is alive
         foreach (GameObject opp in oppLists)
         {
-            if (opp.GetComponent<CharacterBase>().GetCurrentHP() > 0)
+            if (opp.GetComponent<CharacterBase>())
             {
-                livingOpponent.Add(opp.transform);
+                if (opp.GetComponent<CharacterBase>().GetCurrentHP() > 0)
+                {
+                    livingOpponent.Add(opp.transform);
+                }
             }
         }
 
@@ -138,6 +141,16 @@ public class State
         }
 
         return false;
+    }
+
+    public void SetVisDist(float vis)
+    {
+        visDist = vis;
+    }
+
+    public void SetScanDist(float scan)
+    {
+        scanDist = scan;
     }
 
     //Check hide status

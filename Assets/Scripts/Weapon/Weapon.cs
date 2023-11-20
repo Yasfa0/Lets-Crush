@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     float lastShot;
     float rofDelay = 0.3f;
     bool isAiming = false;
+    bool isShoot = false;
     
     FloatingHealthBar statsBar;
 
@@ -66,6 +67,8 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Is shoot: "+isShoot);
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeAmmo(1);
@@ -110,7 +113,7 @@ public class Weapon : MonoBehaviour
             }else if (Time.time - lastShot > cooldown)
             {
                 Shoot();
-            }    
+            }
         }
         
         if (Input.GetMouseButton(1))
@@ -133,8 +136,14 @@ public class Weapon : MonoBehaviour
             {
                 GetComponent<CharacterBase>().SetHidden(false);
                 StartCoroutine(RoFShot());
+                isShoot = true;
             }
         }
+    }
+
+    public bool GetIsShoot()
+    {
+        return isShoot;
     }
 
     public void AddNewAmmo(AmmoScriptable newAmmo, int amount)
@@ -211,6 +220,7 @@ public class Weapon : MonoBehaviour
             }
             yield return new WaitForSeconds(rofDelay);
         }
+        isShoot = false;
     }
 
     GameObject ClosestEnemyAvailable()
