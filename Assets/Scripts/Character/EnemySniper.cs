@@ -10,7 +10,7 @@ public class EnemySniper : Enemy
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         SetupHealthBar();
     }

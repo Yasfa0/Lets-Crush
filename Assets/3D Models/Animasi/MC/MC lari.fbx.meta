@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: -1007528540481444846
     second: rig.001|Action
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MC
+    second: {fileID: 2100000, guid: e84deb234bc3292459ee0fc4f68e8e4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MC.001
+    second: {fileID: 2100000, guid: e84deb234bc3292459ee0fc4f68e8e4e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

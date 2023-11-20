@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
     float tickDuration = 2f;
     Player player;
 
+    Animator anim;
+
     private void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         player = GetComponent<Player>();
         playerWeapon = GetComponent<Weapon>();
         charaController = GetComponent<CharacterController>();
@@ -50,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
             if (moveDir.magnitude == 0 && !playerWeapon.GetIsShoot())
             {
                 Debug.Log("Player Idling");
+                anim.SetInteger("animState", 0);
                 if (Time.time - lastIdle >= tickDuration)
                 {
                   player.HealDamage(50);
@@ -59,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                anim.SetInteger("animState",1);
                 idleSetup = false;
                 Debug.Log("Player not Idling");
             }

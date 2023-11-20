@@ -523,6 +523,8 @@ MonoBehaviour:
     icon: {fileID: 1859349742, guid: a8a761800a3b5a4469ba870377db1434, type: 3}
   - allyPrefab: {fileID: 5695559038549344839, guid: 7b67de7eb760f9441b64acea70aade77, type: 3}
     icon: {fileID: -1274688389, guid: a8a761800a3b5a4469ba870377db1434, type: 3}
+  - allyPrefab: {fileID: 120441596045415243, guid: ffaf545f95c0a7e4297aa88dcabbe14d, type: 3}
+    icon: {fileID: -91446206, guid: e6f50e82342d3394fb3cf2c99d551555, type: 3}
 --- !u!1 &8382797362166105706
 GameObject:
   m_ObjectHideFlags: 0

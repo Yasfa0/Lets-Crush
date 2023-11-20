@@ -12,7 +12,8 @@ public class SniperAmmo : Ammo
 
     public override void HitEnemy(GameObject enemy)
     {
-
+        enemy.GetComponent<CharacterBase>().TakeDamage(DamageCalc());
+        Destroy(gameObject);
     }
     public override void HitObstacle(GameObject obstacle)
     {

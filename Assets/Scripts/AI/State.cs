@@ -588,6 +588,7 @@ public class Imprisoned : State
         //anim.SetTrigger("isIdle");
         //npc.transform.rotation = Quaternion.Euler(0, 180, 0);
         base.Enter();
+        //anim.SetInteger("animState", 0);
     }
 
     public override void Update()

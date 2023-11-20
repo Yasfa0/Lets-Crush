@@ -13,6 +13,8 @@ public class IdleFighter : State
     public override void Enter()
     {
         base.Enter();
+        anim.SetInteger("animState", 0);
+
     }
 
     public override void Update()
@@ -69,6 +71,8 @@ public class MoveToBenteng : State
     {
         //anim.SetTrigger("isIdle");
         //npc.transform.rotation = Quaternion.Euler(0, 180, 0);
+
+        anim.SetInteger("animState", 1);
         agent.SetDestination(targetBenteng.transform.position);
         base.Enter();
     }
@@ -187,6 +191,8 @@ public class Pursue : State
     {
         //anim.SetTrigger("isRunning");
         base.Enter();
+
+        anim.SetInteger("animState", 1);
     }
 
     public override void Update()
@@ -237,6 +243,8 @@ public class FighterShoot : State
     public override void Enter()
     {
         base.Enter();
+
+        anim.SetInteger("animState", 0);
     }
 
     public override void Update()

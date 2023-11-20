@@ -17,7 +17,7 @@ public class Ally : CharacterBase
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //player = GameObject.FindGameObjectWithTag("Player");
         SetupHealthBar();
@@ -41,7 +41,7 @@ public class Ally : CharacterBase
     {
         base.Update();
         currentState = currentState.Process();
-        Debug.Log("HALOOO");
+        ////Debug.Log("HALOOO");
         Debug.Log(gameObject.name + " current state: " + currentState);
         Knockdown();
     }

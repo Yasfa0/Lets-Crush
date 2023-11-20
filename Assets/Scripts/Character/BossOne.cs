@@ -18,7 +18,7 @@ public class BossOne : Enemy
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //player = GameObject.FindGameObjectWithTag("Player");
         SetupHealthBar();

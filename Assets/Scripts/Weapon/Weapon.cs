@@ -24,6 +24,13 @@ public class Weapon : MonoBehaviour
     
     FloatingHealthBar statsBar;
 
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     private void Start()
     {
         if (GameData.GetSelectedAmmo().Count > 0)
@@ -205,6 +212,10 @@ public class Weapon : MonoBehaviour
         statsBar.ReduceAmmo();
         for (int i = 0; i < rateOfFire; i++)
         {
+            if (anim != null)
+            {
+                anim.SetInteger("animState",2);
+            }
             Vector3 bulletDir = transform.forward.normalized * 2;
             lastShot = Time.time;
             GameObject bulletInstance = Instantiate(ammoList[currentAmmoIndex].ammoPrefab, bulletSpawner.position, Quaternion.identity);

@@ -93,15 +93,15 @@ public class ClimbClosest : State
     {
         Debug.Log("Sniper To CWall");
 
-        if (agent.hasPath)
-        {
+        //if (agent.hasPath)
+        //{
             if (agent.remainingDistance <= 1)
             {
                 //Debug.Log("Swap Shoot");
                 nextState = new SniperPatrol(npc, opposingTeam, anim, agent);
                 stage = EVENT.EXIT;
             }
-        }
+        //}
     }
 
     public override void Exit()

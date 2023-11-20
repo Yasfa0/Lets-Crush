@@ -15,7 +15,7 @@ public class Enemy : CharacterBase
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //player = GameObject.FindGameObjectWithTag("Player");
         SetupHealthBar();
@@ -46,7 +46,7 @@ public class Enemy : CharacterBase
 
     public override void Knockdown()
     {
-        if(currentHP <= 0 && !isDead)
+        if(currentHP <= 0.99 && !isDead)
         {
             int laneMask = 0;
             laneMask += 1 << NavMesh.GetAreaFromName("LaneOne");
@@ -62,6 +62,10 @@ public class Enemy : CharacterBase
 
             isDead = true;
             //hpBarInstance.DestroyHealthBar();
+            if (anim != null)
+            {
+                anim.SetInteger("animState", 0);
+            }
             FindObjectOfType<ObjectiveManager>().AddEnemyKnock();
             isKnocked = true;
             currentState = new Knockdown(gameObject,ConvertToTransform(opposingTeam),anim,agent);

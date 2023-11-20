@@ -24,10 +24,11 @@ public class BossThree : Enemy
     bool heavyImmune = false;
     float lastRegen;
     float regenTick = 1f;
+    bool onceEnterHeavy = false;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //player = GameObject.FindGameObjectWithTag("Player");
         SetupHealthBar();
@@ -51,7 +52,7 @@ public class BossThree : Enemy
         {
             if (currentHP <=  ((50f / 100f) * maxHP) &&   Time.time - lastRegen >= regenTick)
             {
-                HealDamage(20);
+                HealDamage(5);
                 Debug.Log("Regen Heal");
                 lastRegen = Time.time;
             }
@@ -100,8 +101,9 @@ public class BossThree : Enemy
             heavyImmune = false;
         }
 
-        if (currentHP <= heavyHealth)
+        if (!onceEnterHeavy && currentHP <= heavyHealth)
         {
+            onceEnterHeavy = true;
             isHeavy = true;
             heavyImmune = true;
             lastHeavyEnter = Time.time;
